@@ -11,5 +11,5 @@ tokens:
   emphasized: true
 - text: music
 - text: pixels
-- text: non-profit
+- text: volunteer-run
 ---

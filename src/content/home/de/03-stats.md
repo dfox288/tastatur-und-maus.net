@@ -3,11 +3,11 @@ section: stats
 order: 3
 items: 
 - value: "1.000+"
-  label: Besucher vor Ort jedes Ostern
+  label: Menschen auf der Party jedes Ostern
 - value: "60+"
-  label: "Länder im Live-Stream"
-- value: "10k+"
-  label: YouTube-Abonnenten
+  label: Länder im Stream
+- value: "10M+"
+  label: YouTube-Aufrufe im Archiv
 - value: "7"
-  label: "Länder mit UNESCO-Demoszene-Kulturerbe"
+  label: "Länder, in denen die Demoszene UNESCO-Kulturerbe ist"
 ---

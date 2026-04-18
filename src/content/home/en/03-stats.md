@@ -3,11 +3,11 @@ section: stats
 order: 3
 items: 
 - value: "1,000+"
-  label: Visitors on-site every Easter
+  label: People at the party every Easter
 - value: "60+"
-  label: Countries tuning in live
-- value: "10k+"
-  label: YouTube subscribers
+  label: Countries watching the stream
+- value: "10M+"
+  label: YouTube archive views
 - value: "7"
-  label: Countries with UNESCO demoscene heritage status
+  label: Countries where the demoscene is UNESCO heritage
 ---

@@ -1,25 +1,25 @@
 ---
 section: gallery
 order: 8
-kicker: Impressions
-title: What Easter looks like.
+kicker: On the floor
+title: What it actually looks like.
 tiles: 
 - image: "/images/gallery-01.jpg"
   caption: Main hall, Friday night
   span: "7x3"
 - image: "/images/gallery-02.jpg"
-  caption: Compo submissions
+  caption: Compo entries
   span: "5x2"
 - image: "/images/gallery-03.jpg"
   caption: Pixel art up close
   span: "5x2"
 - image: "/images/gallery-04.jpg"
-  caption: Shader Showdown
+  caption: Shader Showdown final
   span: "4x2"
 - image: "/images/gallery-05.jpg"
   caption: Oldskool corner
   span: "4x2"
 - image: "/images/gallery-06.jpg"
-  caption: The livestream
+  caption: Stream desk, 2am
   span: "4x2"
 ---

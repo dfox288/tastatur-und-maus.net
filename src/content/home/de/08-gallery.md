@@ -1,8 +1,8 @@
 ---
 section: gallery
 order: 8
-kicker: "Eindrücke"
-title: So sieht Ostern aus.
+kicker: "Vor Ort"
+title: So sieht es wirklich aus.
 tiles: 
 - image: "/images/gallery-01.jpg"
   caption: "Großer Saal, Freitagnacht"
@@ -14,12 +14,12 @@ tiles:
   caption: Pixel-Art von Nahem
   span: "5x2"
 - image: "/images/gallery-04.jpg"
-  caption: Shader Showdown
+  caption: Shader-Showdown-Finale
   span: "4x2"
 - image: "/images/gallery-05.jpg"
   caption: Oldskool-Ecke
   span: "4x2"
 - image: "/images/gallery-06.jpg"
-  caption: Der Livestream
+  caption: Streamdesk, 2 Uhr nachts
   span: "4x2"
 ---

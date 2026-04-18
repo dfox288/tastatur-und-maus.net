@@ -2,18 +2,18 @@
 section: hero
 order: 1
 eyebrow: "Tastatur und Maus e.V. — seit 2008"
-headline: Wir lieben Computerkunst. Macht
-headlineAccent: mit.
-subtitle: "Jeden Ostern treffen sich tausend Coder, Musiker, Grafiker und alte Freunde in Saarbrücken zur Revision — ein viertägiges Festival, das die Kunst des Programmierens, die Freude am gemeinsamen Schaffen und die Freundschaften feiert, die die Demoszene am Leben halten."
+headline: "Wir lieben Computerkunst. Macht"
+headlineAccent: "mit."
+subtitle: "Jeden Ostern kommen tausend Coder, Musiker, Grafikerinnen und alte Freunde ins E-Werk nach Saarbrücken — für vier Tage Echtzeit-Demos, Tracked Music, Pixelart, Live-Compos und Nächte, in denen niemand ins Bett will, solange noch über Code geredet wird. Demoszene. Leibhaftig."
 cta1: 
-  label: Sponsor werden
+  label: "So funktioniert Sponsoring"
   href: "#sponsors"
 cta2: 
   label: "Über Revision 2027"
   href: "#revision"
-countdownLabel: "Revision 2027 · Osterwochenende · Saarbrücken, Deutschland"
-heroTag: Revision 2026
-heroCaption: Tausend Freunde, vier Tage an Ostern.
+countdownLabel: "Revision 2027 · 2.–5. April · E-Werk, Saarbrücken"
+heroTag: "Revision 2026"
+heroCaption: "Das E-Werk, Osterwochenende. Revision 2026."
 heroImage: "/images/hero.jpg"
-heritageText: Immaterielles UNESCO-Kulturerbe
+heritageText: "Anerkanntes immaterielles UNESCO-Kulturerbe"
 ---

@@ -8,7 +8,7 @@ export const NAV = {
     about: 'Association',
     revision: 'Revision',
     history: 'History',
-    sponsors: 'Sponsor us',
+    sponsors: 'Sponsors',
     gallery: 'Gallery',
     press: 'Press',
     contact: 'Contact',

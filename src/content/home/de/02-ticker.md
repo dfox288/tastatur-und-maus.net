@@ -11,5 +11,5 @@ tokens:
   emphasized: true
 - text: Musik
 - text: Pixel
-- text: "gemeinnützig"
+- text: "ehrenamtlich"
 ---

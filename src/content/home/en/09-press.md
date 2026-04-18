@@ -2,8 +2,8 @@
 section: press
 order: 9
 kicker: Press kit
-title: Everything journalists need.
-body: "Download our brand assets, fact sheet, and approved photography. For interviews or tailored materials, write to press@tastatur-und-maus.net."
+title: Everything you need to write about us.
+body: "Logos, high-res photography, fact sheet and event stats — download what you need. For interviews or anything not here, write to press@tastatur-und-maus.net."
 files: 
 - name: Logo pack
   meta: "ZIP · 4 MB · SVG + PNG"

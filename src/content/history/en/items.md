@@ -1,21 +1,21 @@
 ---
 items: 
 - year: "2008"
-  title: TUM e.V. founded
-  description: A group of demoscene organisers register the association to give the community legal and financial footing.
+  title: First Revision takes shape
+  description: "Demoscene organisers found TUM e.V. — a registered non-profit to hold the bank account, sign the contracts, and make the next party possible."
 - year: "2011"
-  title: Revision is born
-  description: "The first Revision takes place in Saarbrücken over Easter, stepping in where Breakpoint left off."
+  title: First Revision
+  description: "The first Revision takes place in Saarbrücken over Easter weekend, picking up the torch from Breakpoint."
 - year: "2015"
-  title: "1,000 visitors"
-  description: Revision crosses the thousand-attendee mark. Streams start drawing global audiences.
+  title: "1,000 on the floor"
+  description: "Revision crosses the thousand-attendee mark. The stream started reaching audiences in dozens of countries."
 - year: "2020"
   title: Revision Online
-  description: "A fully-online edition during the pandemic — 60+ countries tune in live."
+  description: "Pandemic edition, fully remote — and 60+ countries showed up anyway. The biggest stream audience Revision had ever seen."
 - year: "2024"
   title: YouTube 10k+
-  description: Our archive channel passes ten thousand subscribers and millions of lifetime views.
+  description: "Our archive channel passes ten thousand subscribers and millions of lifetime views."
 - year: "2027"
-  title: Next chapter
-  description: "Revision returns to Saarbrücken for its sixteenth edition."
+  title: Sixteenth edition
+  description: "Revision 2027. E-Werk, Saarbrücken. Easter weekend. Same place it's always been."
 ---

@@ -3,12 +3,12 @@ section: about
 order: 4
 kicker: The association
 title: A home for creative coders and their friends.
-body: "Tastatur und Maus e.V. was founded in 2008 by a group of demoscene organisers who wanted to give their community something lasting — a non-profit that could host events, maintain infrastructure, and help other parties across Europe. Today TUM e.V. runs Revision, the world's largest demoparty, and lends gear and know-how to sibling events wherever they're needed. The demoscene itself — a transnational digital culture born in the 1980s home computer revolution, where coders, musicians and artists collaborate to create real-time audiovisual works — is now officially recognised as UNESCO intangible cultural heritage in Finland, Germany, France, Sweden, the Netherlands, Switzerland and Poland."
+body: "Tastatur und Maus e.V. was founded in 2008 by demoscene organisers who wanted the scene to have solid ground under it — a registered non-profit that could hold a bank account, sign contracts, and be there next year. Today TUM e.V. runs Revision, the world's largest demoparty, and sends hardware and crew experience to sibling events across Europe whenever they need it. Revision is built every year by 40+ volunteers who show up early, stay late, and run on Club-Mate. The demoscene itself — a transnational digital culture born in the 1980s home-computer era, where coders, musicians and artists make real-time audiovisual works from scratch — is now officially recognised as UNESCO intangible cultural heritage in Finland, Germany, France, Sweden, the Netherlands, Switzerland and Poland."
 bullets: 
-- "Registered non-profit (gemeinnütziger Verein) in Germany"
-- "Runs Revision every Easter — code, music, art and friendship for four days"
-- "Lends hardware & crew experience to demoparties across Europe"
-- "100% volunteer-run; every euro goes back into the community"
+- "Registered non-profit (gemeinnütziger Verein) in Germany since 2008"
+- "Runs Revision every Easter — demos, music, pixel art, live compos, four days"
+- "Hardware pool and crew know-how available to demoparties across Europe"
+- "100% volunteer-run — every euro goes back into the party"
 facts: 
 - label: Founded
   value: "2008"
@@ -18,6 +18,6 @@ facts:
   value: "Saarbrücken, Germany"
 - label: Volunteers
   value: "40+"
-- label: Parties run
+- label: Revision editions
   value: "16"
 ---
