@@ -1,0 +1,74 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+import Button from '~/components/primitives/Button.astro';
+
+interface Props {
+  kicker: string;
+  title: string;
+  channels: { label: string; email: string }[];
+  address: string;
+  cardHeading: string;
+  cardBody: string;
+  cardCtaLabel: string;
+  cardCtaHref: string;
+}
+const { kicker, title, channels, address, cardHeading, cardBody, cardCtaLabel, cardCtaHref } = Astro.props;
+const addressLines = address.split('\n');
+---
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="grid">
+      <div class="left">
+        <Kicker>{kicker}</Kicker>
+        <h2>{title}</h2>
+        <dl class="channels">
+          {channels.map(c => (
+            <div class="row">
+              <dt>{c.label}</dt>
+              <dd><a href={`mailto:${c.email}`}>{c.email}</a></dd>
+            </div>
+          ))}
+        </dl>
+        <address class="addr">
+          {addressLines.map(l => <div>{l}</div>)}
+        </address>
+      </div>
+      <aside class="card">
+        <div class="bubble" aria-hidden="true"></div>
+        <h3>{cardHeading}</h3>
+        <p>{cardBody}</p>
+        <Button href={cardCtaHref} variant="primary">{cardCtaLabel}</Button>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact { padding: 120px 0; background: var(--color-ink); color: var(--color-paper); }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  .grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: start; }
+  h2 { font-size: clamp(36px, 5vw, 72px); color: var(--color-paper); margin-top: 24px; }
+  .channels { margin-top: 32px; display: flex; flex-direction: column; gap: 18px; }
+  .row { display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: baseline; border-bottom: 1px solid rgba(255,255,255,.15); padding-bottom: 14px; }
+  .row dt { font-family: var(--font-mono); font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--color-muted); }
+  .row dd { margin: 0; }
+  .row dd a { color: #fff; font-family: var(--font-display); font-style: italic; font-size: 26px; text-decoration: none; }
+  .row dd a:hover { color: #f7a0ad; }
+  .addr { margin-top: 32px; font-family: var(--font-mono); font-size: 13px; color: var(--color-rule); font-style: normal; line-height: 1.6; }
+  .card {
+    position: relative; padding: 40px;
+    background: var(--color-red); border-radius: 4px;
+    overflow: hidden;
+  }
+  .bubble {
+    position: absolute; inset: -40px -40px auto auto;
+    width: 220px; height: 220px; border-radius: 50%;
+    background: rgba(255,255,255,.08);
+  }
+  .card h3 { color: #fff; font-family: var(--font-display); font-size: 32px; position: relative; }
+  .card p { color: rgba(255,255,255,.85); margin-top: 18px; line-height: 1.55; position: relative; }
+  .card :global(.btn) { margin-top: 24px; position: relative; background: #fff !important; color: var(--color-red) !important; }
+  .card :global(.btn:hover) { background: var(--color-paper) !important; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; gap: 40px; } }
+  @media (max-width: 720px) { .container { padding: 0 20px; } }
+</style>
