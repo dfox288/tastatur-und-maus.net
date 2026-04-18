@@ -16,6 +16,7 @@
     "test:e2e": "playwright test",
     "typecheck": "astro check",
     "fetch:unsplash": "node scripts/fetch-unsplash.mjs",
+    "fetch:photos": "node scripts/fetch-photos.mjs",
     "migrate:content": "node scripts/migrate-content.mjs"
   },
   "dependencies": {

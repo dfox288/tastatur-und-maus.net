@@ -37,7 +37,7 @@ Snapshot of what's left after the v1 implementation + post-launch audit sweep. O
 
 - [ ] Umami analytics — script wired in `BaseLayout` and disclosed in the privacy pages; requires creating the site entry in the Umami dashboard and setting `PUBLIC_UMAMI_WEBSITE_ID` at build time.
 - [ ] PR CI workflow (typecheck + unit + e2e) so `main` never breaks between pushes. `deploy.yml` runs only on push-to-main today.
-- [ ] `scripts/fetch-photos.mjs` scraper for `tf.weimarnetz.de` with attribution manifest (supersedes the Unsplash fetcher once real photos land).
+- [x] `scripts/fetch-photos.mjs` scraper for `tf.weimarnetz.de` — lists, samples, or fetches named images into `public/images/revision-<year>/` with a CREDITS.txt. Run `npm run fetch:photos -- --help` for usage. Curation (picking favourites and renaming to `hero.jpg` / `gallery-NN.jpg`) still pending.
 - [ ] Pagefind search — only if content volume grows enough to justify it.
 - [ ] Optional PWA manifest + `manifest.webmanifest` (useful only if "Add to Home Screen" becomes a real use case).
 
