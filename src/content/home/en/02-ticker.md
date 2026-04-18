@@ -1,15 +1,17 @@
 ---
 section: ticker
 order: 2
-tokens: 
-- text: Revision 2027
-  emphasized: true
-- text: The Easter Party
-- text: "Saarbrücken"
-- text: since 2007
-- text: code
-  emphasized: true
-- text: music
-- text: pixels
-- text: volunteer-run
+tokens:
+  - text: Revision 2027
+    emphasized: true
+  - text: "26–29 March"
+  - text: E-Werk Saarbrücken
+  - text: PC Demo · 4K · 64K
+  - text: Shader Showdown
+    emphasized: true
+  - text: Tracked Music
+  - text: Oldskool · Paintover
+  - text: Meteoriks
+  - text: Bring your machine.
+    emphasized: true
 ---

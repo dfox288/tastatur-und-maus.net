@@ -153,6 +153,7 @@ const gallery = z.object({
     caption: z.string(),
     span: z.enum(['7x3', '5x2', '4x2']),
   })).length(6),
+  credit: z.string().optional(),
 });
 
 const press = z.object({

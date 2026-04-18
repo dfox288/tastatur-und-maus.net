@@ -5,8 +5,9 @@ interface Props {
   kicker: string;
   title: string;
   tiles: { image: string; caption: string; span: '7x3' | '5x2' | '4x2' }[];
+  credit?: string;
 }
-const { kicker, title, tiles } = Astro.props;
+const { kicker, title, tiles, credit } = Astro.props;
 
 const spanClass = (s: string) => `span-${s.replace('x', '-')}`;
 ---
@@ -22,6 +23,7 @@ const spanClass = (s: string) => `span-${s.replace('x', '-')}`;
         </figure>
       ))}
     </div>
+    {credit && <p class="credit" set:html={credit} />}
   </div>
 </section>
 
@@ -52,6 +54,15 @@ const spanClass = (s: string) => `span-${s.replace('x', '-')}`;
     position: absolute; left: 16px; bottom: 14px; z-index: 1;
     color: #fff; font-family: var(--font-mono); font-size: 10px;
     letter-spacing: .14em; text-transform: uppercase;
+  }
+  .credit {
+    margin-top: 24px;
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .06em; color: var(--color-muted);
+  }
+  .credit :global(a) { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+  @media (hover: hover) {
+    .credit :global(a:hover) { color: var(--color-red); }
   }
   .span-7-3 { grid-column: span 7; grid-row: span 3; min-height: 460px; }
   .span-5-2 { grid-column: span 5; grid-row: span 2; min-height: 300px; }

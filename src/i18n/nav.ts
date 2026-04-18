@@ -19,6 +19,7 @@ export const NAV = {
     codeOfConduct: 'Code of Conduct',
     skipToContent: 'Skip to content',
     menu: 'Menu',
+    daysToGo: 'days to go',
   },
   de: {
     about: 'Verein',
@@ -35,5 +36,6 @@ export const NAV = {
     codeOfConduct: 'Verhaltenskodex',
     skipToContent: 'Zum Inhalt springen',
     menu: 'Menü',
+    daysToGo: 'Tage noch',
   },
 } as const satisfies Record<Locale, Record<string, string>>;
