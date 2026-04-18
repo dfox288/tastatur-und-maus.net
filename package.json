@@ -1,0 +1,34 @@
+{
+  "name": "tastatur-und-maus",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "engines": { "node": ">=22.12.0" },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "typecheck": "astro check",
+    "fetch:unsplash": "node scripts/fetch-unsplash.mjs",
+    "migrate:content": "node scripts/migrate-content.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.2",
+    "@fontsource/inter-tight": "^5.2.7",
+    "@fontsource/instrument-serif": "^5.2.8",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "astro": "^6.1.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0",
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/node": "^22.10.0",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
