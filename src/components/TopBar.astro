@@ -37,7 +37,7 @@ const navLinks = [
       </a>
       <a href="#sponsors" class="btn primary small">{t(locale, 'becomeSponsor')}</a>
       <input type="checkbox" id="mnav-toggle" class="mnav-toggle" aria-label={t(locale, 'menu')} />
-      <label for="mnav-toggle" class="mnav-btn" aria-hidden="true">
+      <label for="mnav-toggle" class="mnav-btn">
         <span></span><span></span><span></span>
       </label>
     </div>
@@ -67,6 +67,7 @@ const navLinks = [
 <style>
   .topbar {
     position: sticky; top: 0; z-index: 50;
+    background: var(--color-paper);
     background: color-mix(in oklab, var(--color-paper) 88%, transparent);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
@@ -110,7 +111,19 @@ const navLinks = [
   .btn.small { padding: 9px 14px; font-size: 13px; }
 
   /* Mobile drawer */
-  .mnav-toggle, .mnav-btn { display: none; }
+  .mnav-btn { display: none; }
+  .mnav-toggle {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 1px; height: 1px;
+    margin: 0;
+    /* keep it in flow but invisible so it can still receive focus */
+  }
+  .mnav-toggle:focus-visible ~ .mnav-btn {
+    outline: 2px solid var(--color-red);
+    outline-offset: 4px;
+  }
   .mnav-drawer { display: none; }
 
   @media (max-width: 980px) {
