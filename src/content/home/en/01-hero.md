@@ -16,4 +16,5 @@ heroTag: "Revision 2026"
 heroCaption: "The E-Werk, Easter weekend. Revision 2026."
 heroImage: "/images/hero.jpg"
 heritageText: "Recognised UNESCO intangible cultural heritage"
+attendeeWelcome: "Attending? Bring your machine. The rest is here."
 ---

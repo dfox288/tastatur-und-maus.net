@@ -18,6 +18,7 @@ const hero = z.object({
   heroCaption: z.string(),
   heroImage: z.string(),
   heritageText: z.string(),
+  attendeeWelcome: z.string().optional(),
 });
 
 const ticker = z.object({
@@ -65,6 +66,7 @@ const revision = z.object({
   }),
   ctaLabel: z.string(),
   ctaHref: z.string(),
+  archiveNote: z.string().optional(),
 });
 
 const history = z.object({

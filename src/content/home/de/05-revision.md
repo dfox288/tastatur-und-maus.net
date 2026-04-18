@@ -11,4 +11,5 @@ meta:
   edition: "16. Ausgabe"
 ctaLabel: "Alle Event-Archive →"
 ctaHref: "https://2027.revision-party.net"
+archiveNote: "Compo-Ergebnisse und Releases werden auf pouet.net und demozoo.org archiviert."
 ---

@@ -10,8 +10,9 @@ interface Props {
   ctaLabel: string;
   ctaHref: string;
   locale: Locale;
+  archiveNote?: string;
 }
-const { kicker, title, body, meta, ctaLabel, ctaHref, locale } = Astro.props;
+const { kicker, title, body, meta, ctaLabel, ctaHref, locale, archiveNote } = Astro.props;
 
 const LABELS: Record<Locale, Record<'dates' | 'venue' | 'audience' | 'edition', string>> = {
   en: { dates: 'Dates', venue: 'Venue', audience: 'Audience', edition: 'Edition' },
@@ -32,6 +33,7 @@ const lbl = LABELS[locale];
         <div><dt>{lbl.edition}</dt><dd>{meta.edition}</dd></div>
       </dl>
       <a href={ctaHref} class="link">{ctaLabel}</a>
+      {archiveNote && <p class="archive-note">{archiveNote}</p>}
     </div>
   </div>
 </section>
@@ -64,6 +66,13 @@ const lbl = LABELS[locale];
     font-family: var(--font-display); font-style: italic;
     font-size: 22px; color: #eb6b7f;
     text-decoration: none;
+  }
+  .archive-note {
+    margin-top: 18px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--color-rule);
+    max-width: 60ch;
   }
   @media (hover: hover) {
     .link:hover { color: var(--color-paper); }

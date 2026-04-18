@@ -16,9 +16,11 @@ interface Props {
   heroCaption: string;
   heroImage: string;
   heritageText: string;
+  attendeeWelcome?: string;
 }
 const { eyebrow, headline, headlineAccent, subtitle, cta1, cta2,
-  countdownLabel, heroTag, heroCaption, heroImage, heritageText } = Astro.props;
+  countdownLabel, heroTag, heroCaption, heroImage, heritageText,
+  attendeeWelcome } = Astro.props;
 ---
 <section class="hero">
   <div class="grid">
@@ -33,6 +35,7 @@ const { eyebrow, headline, headlineAccent, subtitle, cta1, cta2,
         <Button href={cta1.href} variant="primary">{cta1.label}</Button>
         <Button href={cta2.href} variant="ghost">{cta2.label}</Button>
       </div>
+      {attendeeWelcome && <p class="attendee-welcome">{attendeeWelcome}</p>}
       <div class="countdown">
         <span class="days"><em data-countdown-days>—</em></span>
         <span>{countdownLabel}</span>
@@ -88,6 +91,13 @@ const { eyebrow, headline, headlineAccent, subtitle, cta1, cta2,
     color: var(--color-ink-2); max-width: 56ch; line-height: 1.45;
   }
   .ctas { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .attendee-welcome {
+    margin-top: 18px;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--color-muted);
+    max-width: 52ch;
+  }
   .countdown {
     margin-top: 44px; padding-top: 24px;
     border-top: 1px solid var(--color-rule);
