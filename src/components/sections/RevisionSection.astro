@@ -23,14 +23,14 @@ const lbl = LABELS[locale];
   <div class="container">
     <div class="card">
       <Kicker>{kicker}</Kicker>
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <p class="body">{body}</p>
-      <div class="meta">
+      <dl class="meta">
         <div><dt>{lbl.dates}</dt><dd>{meta.dates}</dd></div>
         <div><dt>{lbl.venue}</dt><dd>{meta.venue}</dd></div>
         <div><dt>{lbl.audience}</dt><dd>{meta.audience}</dd></div>
         <div><dt>{lbl.edition}</dt><dd>{meta.edition}</dd></div>
-      </div>
+      </dl>
       <a href={ctaHref} class="link">{ctaLabel}</a>
     </div>
   </div>
@@ -43,7 +43,7 @@ const lbl = LABELS[locale];
     background: var(--color-ink); color: var(--color-paper);
     padding: 80px; border-radius: 4px;
   }
-  h3 { font-size: clamp(36px, 5vw, 72px); color: var(--color-paper); margin-top: 20px; }
+  h2 { font-size: clamp(36px, 5vw, 72px); color: var(--color-paper); margin-top: 20px; }
   .body { margin-top: 28px; font-size: clamp(16px, 1.15vw, 19px); max-width: 60ch; color: var(--color-rule); line-height: 1.55; }
   .meta {
     margin-top: 48px;

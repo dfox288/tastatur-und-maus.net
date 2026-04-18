@@ -2,6 +2,7 @@
 import BaseLayout from '~/layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Not found / Nicht gefunden" locale="en">
+  <meta slot="head" name="robots" content="noindex, follow" />
   <article class="nf">
     <h1>404</h1>
     <p class="en">This page does not exist. Return to the <a href="/en/">home page</a>.</p>

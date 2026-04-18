@@ -26,7 +26,6 @@ const articles = entries.sort((a, b) => a.data.order - b.data.order).slice(0, 3)
           </div>
           <h4>{a.data.title}</h4>
           <p>{a.data.excerpt}</p>
-          <span class="more">{locale === 'en' ? 'Read more →' : 'Weiterlesen →'}</span>
         </article>
       ))}
     </div>
@@ -42,7 +41,6 @@ const articles = entries.sort((a, b) => a.data.order - b.data.order).slice(0, 3)
   .top { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-muted); }
   .card h4 { font-family: var(--font-display); font-size: 28px; font-weight: 500; line-height: 1.1; margin: 4px 0 0; }
   .card p { font-size: 15px; color: var(--color-ink-2); line-height: 1.55; }
-  .more { color: var(--color-red); font-family: var(--font-display); font-style: italic; font-size: 15px; }
   @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
   @media (max-width: 720px) { .container { padding: 0 20px; } }
 </style>
