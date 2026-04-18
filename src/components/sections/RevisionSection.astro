@@ -50,16 +50,19 @@ const lbl = LABELS[locale];
   }
   .title-row {
     margin-top: 20px;
-    display: flex; align-items: center; justify-content: space-between;
+    display: flex; align-items: flex-start; justify-content: space-between;
     gap: 40px; flex-wrap: wrap;
   }
   h2 { font-size: clamp(36px, 5vw, 72px); color: var(--color-paper); margin: 0; }
   .rev-logo {
-    width: clamp(96px, 12vw, 168px); height: auto;
+    width: clamp(140px, 16vw, 220px); height: auto;
     flex-shrink: 0;
+    /* Nudge up slightly so the logo's optical top lines up with the
+       h2's cap-height rather than its true bounding box top. */
+    margin-top: -4px;
   }
   @media (max-width: 720px) {
-    .rev-logo { width: 80px; }
+    .rev-logo { width: 120px; }
   }
   .body { margin-top: 28px; font-size: clamp(16px, 1.15vw, 19px); max-width: 60ch; color: var(--color-rule); line-height: 1.55; }
   .meta {
