@@ -7,7 +7,8 @@ Tracked in the spec at `docs/superpowers/specs/2026-04-18-tum-website-design.md`
 - [ ] Upgrade the CSS hamburger drawer to a JS component (focus trap, aria-expanded, escape-to-close).
 - [ ] Contact form (Formspree / Web3Forms / self-hosted) — replaces the v1 mailto: links.
 - [ ] Umami analytics hookup to analytics.tastatur-und-maus.net.
-- [ ] Per-page OG images + Twitter card meta.
+- [ ] Per-page OG images + Twitter card meta. v1 emits `og:image`/`twitter:image` only when a caller passes `image` to `BaseLayout`; v1.1 should ship `public/og-image.png` as the site-level default and re-emit it unconditionally.
+- [ ] PR CI workflow (typecheck + unit + e2e) so main never breaks between pushes.
 - [ ] schema.org/Event JSON-LD for Revision.
 - [ ] Per-locale 404 page.
 - [ ] Accessibility audit: skip link, focus-visible styles, ARIA landmarks, color contrast.
