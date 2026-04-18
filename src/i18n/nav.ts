@@ -3,7 +3,7 @@ export type Locale = 'en' | 'de';
 export const LOCALES: Locale[] = ['en', 'de'];
 export const DEFAULT_LOCALE: Locale = 'en';
 
-export const NAV: Record<Locale, Record<string, string>> = {
+export const NAV = {
   en: {
     about: 'Association',
     revision: 'Revision',
@@ -36,4 +36,4 @@ export const NAV: Record<Locale, Record<string, string>> = {
     skipToContent: 'Zum Inhalt springen',
     menu: 'Menü',
   },
-};
+} as const satisfies Record<Locale, Record<string, string>>;
