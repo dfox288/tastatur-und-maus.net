@@ -11,5 +11,5 @@ meta:
   edition: "17th edition"
 ctaLabel: "Full event archive →"
 ctaHref: "https://archive.revision-party.net"
-archiveNote: "Compo results and releases are also archived on pouet.net and demozoo.org. Files are hosted at scene.org."
+archiveNote: 'Compo results and releases are also archived on <a href="https://www.pouet.net/">pouet.net</a> and <a href="https://demozoo.org/">demozoo.org</a>. Files are hosted at <a href="https://files.scene.org/">scene.org</a>.'
 ---

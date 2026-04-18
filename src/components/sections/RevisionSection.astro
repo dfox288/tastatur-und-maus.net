@@ -36,7 +36,7 @@ const lbl = LABELS[locale];
         <div><dt>{lbl.edition}</dt><dd>{meta.edition}</dd></div>
       </dl>
       <a href={ctaHref} class="link">{ctaLabel}</a>
-      {archiveNote && <p class="archive-note">{archiveNote}</p>}
+      {archiveNote && <p class="archive-note" set:html={archiveNote} />}
     </div>
   </div>
 </section>
@@ -121,6 +121,14 @@ const lbl = LABELS[locale];
     font-size: 12px;
     color: var(--color-rule);
     max-width: 60ch;
+  }
+  .archive-note :global(a) {
+    color: var(--color-paper);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  @media (hover: hover) {
+    .archive-note :global(a:hover) { color: #eb6b7f; }
   }
   @media (hover: hover) {
     .link:hover { color: var(--color-paper); }
