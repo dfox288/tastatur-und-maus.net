@@ -1,0 +1,52 @@
+---
+interface Props {
+  image: string;
+  tag?: string;
+  caption?: string;
+  minHeight?: string;
+}
+const { image, tag, caption, minHeight = '460px' } = Astro.props;
+---
+<div class="photo-card" style={`--min-h: ${minHeight}`}>
+  <div class="photo" style={`background-image: url('${image}')`}></div>
+  <div class="overlay"></div>
+  <div class="caption">
+    {tag && <span class="tag">{tag}</span>}
+    {caption && <div class="text">{caption}</div>}
+  </div>
+  <slot />
+</div>
+
+<style>
+  .photo-card {
+    position: relative; width: 100%;
+    min-height: var(--min-h);
+    border-radius: 6px; overflow: hidden;
+    box-shadow: 0 30px 60px -10px rgba(20, 19, 26, .18);
+  }
+  .photo {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    transition: transform 6s ease;
+  }
+  .photo-card:hover .photo { transform: scale(1.04); }
+  .overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(20,19,26,.7) 0%, rgba(20,19,26,.05) 50%);
+  }
+  .caption {
+    position: absolute; bottom: 24px; left: 24px; right: 24px;
+    color: #fff; z-index: 2;
+  }
+  .tag {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: rgba(255,255,255,.95);
+    margin-bottom: 10px; display: inline-block;
+    background: var(--color-red); padding: 4px 8px; border-radius: 2px;
+  }
+  .text {
+    font-family: var(--font-display); font-style: italic;
+    font-size: clamp(22px, 2.4vw, 32px); line-height: 1.15;
+  }
+</style>

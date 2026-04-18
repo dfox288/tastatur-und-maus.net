@@ -1,0 +1,20 @@
+---
+interface Props { as?: 'span' | 'div' | 'p'; }
+const { as = 'span' } = Astro.props;
+const Tag = as;
+---
+<Tag class="kicker"><slot /></Tag>
+
+<style>
+  .kicker {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--color-muted);
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .kicker::before {
+    content: ""; width: 22px; height: 1px;
+    background: var(--color-ink); opacity: .4;
+    display: inline-block;
+  }
+</style>

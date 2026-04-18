@@ -1,0 +1,33 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'ghost';
+  size?: 'normal' | 'small';
+  arrow?: boolean;
+  rel?: string;
+  target?: string;
+}
+const { href, variant = 'primary', size = 'normal', arrow = false, rel, target } = Astro.props;
+const cls = ['btn', variant, size === 'small' ? 'small' : ''].filter(Boolean).join(' ');
+---
+<a href={href} class={cls} rel={rel} target={target}>
+  <slot />
+  {arrow && <span class="arr">→</span>}
+</a>
+
+<style>
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 12px 20px; border-radius: 999px;
+    font-weight: 600; font-size: 14px;
+    text-decoration: none; border: 1px solid transparent; cursor: pointer;
+    transition: background .15s, color .15s, border-color .15s;
+    font-family: var(--font-sans);
+  }
+  .btn.primary { background: var(--color-ink); color: var(--color-paper); }
+  .btn.primary:hover { background: var(--color-red); }
+  .btn.ghost { background: transparent; color: var(--color-ink); border-color: var(--color-ink); }
+  .btn.ghost:hover { background: var(--color-ink); color: var(--color-paper); }
+  .btn.small { padding: 9px 14px; font-size: 13px; }
+  .arr { font-family: var(--font-mono); font-weight: 400; }
+</style>
