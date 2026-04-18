@@ -1,0 +1,39 @@
+---
+interface Props {
+  tokens: { text: string; emphasized?: boolean }[];
+}
+const { tokens } = Astro.props;
+// Duplicate tokens so the scroll loop is seamless
+const doubled = [...tokens, ...tokens];
+---
+<section class="ticker" aria-hidden="true">
+  <div class="track">
+    {doubled.map(token => token.emphasized
+      ? <b>{token.text}</b>
+      : <span>{token.text}</span>
+    )}
+    {doubled.map(() => <span class="sep">·</span>)}
+  </div>
+</section>
+
+<style>
+  .ticker {
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+    background: var(--color-paper-2);
+    overflow: hidden; padding: 18px 0;
+  }
+  .track {
+    display: flex; gap: 48px; white-space: nowrap;
+    animation: slide 60s linear infinite;
+    font-family: var(--font-display); font-style: italic;
+    font-size: clamp(22px, 2.6vw, 34px);
+  }
+  .track span { color: var(--color-ink); }
+  .track b { color: var(--color-red); font-weight: 500; font-style: normal; }
+  .track .sep { opacity: .3; }
+  @keyframes slide {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+</style>
