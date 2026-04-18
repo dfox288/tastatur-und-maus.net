@@ -1,0 +1,37 @@
+---
+import { t, type Locale, route } from '~/i18n';
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const year = new Date().getFullYear();
+---
+<footer class="footer">
+  <div class="footer-row">
+    <div class="copyright">© {year} Tastatur und Maus e.V. · Saarbrücken</div>
+    <nav class="legal" aria-label="Legal">
+      <a href={route('/imprint', locale)}>{t(locale, 'imprint')}</a>
+      <a href={route('/privacy', locale)}>{t(locale, 'privacy')}</a>
+      <a href={route('/code-of-conduct', locale)}>{t(locale, 'codeOfConduct')}</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-paper);
+    border-top: 1px solid var(--color-rule);
+    padding: 40px 0;
+  }
+  .footer-row {
+    max-width: 1320px; margin: 0 auto; padding: 0 40px;
+    display: flex; justify-content: space-between;
+    gap: 20px; flex-wrap: wrap;
+    font-family: var(--font-mono); font-size: 12px;
+    color: var(--color-muted);
+  }
+  .legal { display: flex; gap: 20px; }
+  .legal a { color: var(--color-muted); text-decoration: none; transition: color .15s; }
+  .legal a:hover { color: var(--color-red); }
+  @media (max-width: 720px) {
+    .footer-row { padding: 0 20px; }
+  }
+</style>
