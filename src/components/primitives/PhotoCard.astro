@@ -4,11 +4,20 @@ interface Props {
   tag?: string;
   caption?: string;
   minHeight?: string;
+  alt?: string;
+  eager?: boolean;
 }
-const { image, tag, caption, minHeight = '460px' } = Astro.props;
+const { image, tag, caption, minHeight = '460px', alt, eager = false } = Astro.props;
+const imgAlt = alt ?? caption ?? tag ?? '';
 ---
 <div class="photo-card" style={`--min-h: ${minHeight}`}>
-  <div class="photo" style={`background-image: url('${image}')`}></div>
+  <img
+    class="photo"
+    src={image}
+    alt={imgAlt}
+    loading={eager ? 'eager' : 'lazy'}
+    decoding="async"
+  />
   <div class="overlay"></div>
   <div class="caption">
     {tag && <span class="tag">{tag}</span>}
@@ -26,7 +35,8 @@ const { image, tag, caption, minHeight = '460px' } = Astro.props;
   }
   .photo {
     position: absolute; inset: 0;
-    background-size: cover; background-position: center;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
     transition: transform 6s ease;
   }
   @media (hover: hover) {

@@ -16,7 +16,8 @@ const spanClass = (s: string) => `span-${s.replace('x', '-')}`;
     <h2>{title}</h2>
     <div class="grid">
       {tiles.map(t => (
-        <figure class={`tile ${spanClass(t.span)}`} style={`background-image: url('${t.image}')`}>
+        <figure class={`tile ${spanClass(t.span)}`}>
+          <img src={t.image} alt={t.caption} loading="lazy" decoding="async" />
           <figcaption>{t.caption}</figcaption>
         </figure>
       ))}
@@ -34,9 +35,14 @@ const spanClass = (s: string) => `span-${s.replace('x', '-')}`;
   }
   .tile {
     position: relative;
-    background-size: cover; background-position: center;
     border-radius: 4px; min-height: 220px;
     overflow: hidden;
+  }
+  .tile img {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    z-index: 0;
   }
   .tile::after {
     content: ""; position: absolute; inset: 0;
