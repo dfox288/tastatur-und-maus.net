@@ -1,0 +1,48 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+import { getCollection } from 'astro:content';
+import type { Locale } from '~/i18n';
+
+interface Props {
+  kicker: string;
+  title: string;
+  locale: Locale;
+}
+const { kicker, title, locale } = Astro.props;
+
+const entries = await getCollection('news', e => e.id.startsWith(`${locale}/`));
+const articles = entries.sort((a, b) => a.data.order - b.data.order).slice(0, 3);
+---
+<section class="news">
+  <div class="container">
+    <Kicker>{kicker}</Kicker>
+    <h2>{title}</h2>
+    <div class="grid">
+      {articles.map(a => (
+        <article class="card">
+          <div class="top">
+            <time>{a.data.date}</time>
+            <span class="tag">{a.data.tag}</span>
+          </div>
+          <h4>{a.data.title}</h4>
+          <p>{a.data.excerpt}</p>
+          <span class="more">{locale === 'en' ? 'Read more →' : 'Weiterlesen →'}</span>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .news { padding: 120px 0; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  h2 { font-size: clamp(36px, 5vw, 72px); margin-top: 24px; }
+  .grid { margin-top: 48px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  .card { display: flex; flex-direction: column; gap: 12px; }
+  .top { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-muted); }
+  .card h4 { font-family: var(--font-display); font-size: 28px; font-weight: 500; line-height: 1.1; margin: 4px 0 0; }
+  .card p { font-size: 15px; color: var(--color-ink-2); line-height: 1.55; }
+  .more { color: var(--color-red); font-family: var(--font-display); font-style: italic; font-size: 15px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) { .container { padding: 0 20px; } }
+</style>
