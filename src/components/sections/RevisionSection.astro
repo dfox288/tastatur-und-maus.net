@@ -1,0 +1,71 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+import type { Locale } from '~/i18n';
+
+interface Props {
+  kicker: string;
+  title: string;
+  body: string;
+  meta: { dates: string; venue: string; audience: string; edition: string };
+  ctaLabel: string;
+  ctaHref: string;
+  locale: Locale;
+}
+const { kicker, title, body, meta, ctaLabel, ctaHref, locale } = Astro.props;
+
+const LABELS: Record<Locale, Record<'dates' | 'venue' | 'audience' | 'edition', string>> = {
+  en: { dates: 'Dates', venue: 'Venue', audience: 'Audience', edition: 'Edition' },
+  de: { dates: 'Termin', venue: 'Ort', audience: 'Publikum', edition: 'Ausgabe' },
+};
+const lbl = LABELS[locale];
+---
+<section class="revision" id="revision">
+  <div class="container">
+    <div class="card">
+      <Kicker>{kicker}</Kicker>
+      <h3>{title}</h3>
+      <p class="body">{body}</p>
+      <div class="meta">
+        <div><dt>{lbl.dates}</dt><dd>{meta.dates}</dd></div>
+        <div><dt>{lbl.venue}</dt><dd>{meta.venue}</dd></div>
+        <div><dt>{lbl.audience}</dt><dd>{meta.audience}</dd></div>
+        <div><dt>{lbl.edition}</dt><dd>{meta.edition}</dd></div>
+      </div>
+      <a href={ctaHref} class="link">{ctaLabel}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .revision { padding: 120px 0; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  .card {
+    background: var(--color-ink); color: var(--color-paper);
+    padding: 80px; border-radius: 4px;
+  }
+  h3 { font-size: clamp(36px, 5vw, 72px); color: var(--color-paper); margin-top: 20px; }
+  .body { margin-top: 28px; font-size: clamp(16px, 1.15vw, 19px); max-width: 60ch; color: var(--color-rule); line-height: 1.55; }
+  .meta {
+    margin-top: 48px;
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    padding-top: 28px; border-top: 1px solid rgba(255,255,255,.15);
+  }
+  .meta dt {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .meta dd {
+    margin: 6px 0 0; font-family: var(--font-display);
+    font-size: 18px; color: var(--color-paper);
+  }
+  .link {
+    margin-top: 28px; display: inline-block;
+    font-family: var(--font-display); font-style: italic;
+    font-size: 22px; color: var(--color-red);
+    text-decoration: none;
+  }
+  .link:hover { color: var(--color-paper); }
+  @media (max-width: 900px) { .meta { grid-template-columns: repeat(2, 1fr); } .card { padding: 40px 24px; } }
+  @media (max-width: 720px) { .container { padding: 0 20px; } }
+</style>
