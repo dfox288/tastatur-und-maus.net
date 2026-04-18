@@ -1,0 +1,106 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+import Button from '~/components/primitives/Button.astro';
+import PhotoCard from '~/components/primitives/PhotoCard.astro';
+import HeritageBadge from '~/components/primitives/HeritageBadge.astro';
+
+interface Props {
+  eyebrow: string;
+  headline: string;
+  headlineAccent: string;
+  subtitle: string;
+  cta1: { label: string; href: string };
+  cta2: { label: string; href: string };
+  countdownLabel: string;
+  heroTag: string;
+  heroCaption: string;
+  heroImage: string;
+  heritageText: string;
+}
+const { eyebrow, headline, headlineAccent, subtitle, cta1, cta2,
+  countdownLabel, heroTag, heroCaption, heroImage, heritageText } = Astro.props;
+---
+<section class="hero">
+  <div class="grid">
+    <div class="left">
+      <div class="eyebrow-row">
+        <span class="dot" aria-hidden="true"></span>
+        <Kicker>{eyebrow}</Kicker>
+      </div>
+      <h1>{headline} <em>{headlineAccent}</em></h1>
+      <p class="sub">{subtitle}</p>
+      <div class="ctas">
+        <Button href={cta1.href} variant="primary">{cta1.label}</Button>
+        <Button href={cta2.href} variant="ghost">{cta2.label}</Button>
+      </div>
+      <div class="countdown">
+        <span class="days"><em data-countdown-days>—</em></span>
+        <span>{countdownLabel}</span>
+      </div>
+    </div>
+    <div class="right">
+      <PhotoCard image={heroImage} tag={heroTag} caption={heroCaption}>
+        <HeritageBadge text={heritageText} />
+      </PhotoCard>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    const target = new Date('2027-04-02T00:00:00+02:00').getTime();
+    const el = document.querySelector('[data-countdown-days]');
+    if (!el) return;
+    const days = Math.max(0, Math.floor((target - Date.now()) / 86400000));
+    el.textContent = String(days);
+  })();
+</script>
+
+<style>
+  .hero { padding: 64px 0 100px; position: relative; overflow: hidden; }
+  .grid {
+    max-width: 1320px; margin: 0 auto; padding: 0 40px;
+    display: grid; grid-template-columns: 1.15fr .85fr;
+    gap: 56px; align-items: end;
+  }
+  h1 {
+    font-size: clamp(56px, 8.8vw, 138px);
+    line-height: .94; letter-spacing: -0.025em; font-weight: 500;
+  }
+  h1 em {
+    font-style: italic; color: var(--color-red);
+    font-family: var(--font-display); font-weight: 500;
+  }
+  .eyebrow-row { display: flex; gap: 18px; align-items: center; margin-bottom: 28px; }
+  .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--color-red);
+    box-shadow: 0 0 0 0 rgba(200, 32, 58, .6);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(200,32,58,.45); }
+    70%  { box-shadow: 0 0 0 14px rgba(200,32,58,0); }
+    100% { box-shadow: 0 0 0 0 rgba(200,32,58,0); }
+  }
+  .sub {
+    margin-top: 28px; font-size: clamp(17px, 1.4vw, 21px);
+    color: var(--color-ink-2); max-width: 56ch; line-height: 1.45;
+  }
+  .ctas { margin-top: 36px; display: flex; gap: 12px; flex-wrap: wrap; }
+  .countdown {
+    margin-top: 44px; padding-top: 24px;
+    border-top: 1px solid var(--color-rule);
+    display: flex; gap: 24px; align-items: baseline; flex-wrap: wrap;
+    font-family: var(--font-mono); font-size: 13px; color: var(--color-ink-2);
+  }
+  .days {
+    font-family: var(--font-display);
+    font-size: 40px; color: var(--color-ink); line-height: 1;
+  }
+  .days em { font-style: italic; color: var(--color-red); }
+  .right { min-height: 460px; }
+  @media (max-width: 980px) {
+    .grid { grid-template-columns: 1fr; padding: 0 20px; }
+  }
+</style>
