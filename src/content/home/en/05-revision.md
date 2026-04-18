@@ -10,6 +10,6 @@ meta:
   audience: "~700 on-site · ~1,000 peak in the stream"
   edition: "17th edition"
 ctaLabel: "Full event archive →"
-ctaHref: "https://2027.revision-party.net"
+ctaHref: "https://archive.revision-party.net"
 archiveNote: "Compo results and releases are archived on pouet.net and demozoo.org."
 ---
