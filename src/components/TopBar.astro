@@ -6,16 +6,20 @@ const { locale } = Astro.props;
 const other = oppositeLocale(locale);
 const currentPath = Astro.url.pathname;
 const otherUrl = route(currentPath, other);
+const home = route('/', locale);
 
+// Anchors always point to the home page + fragment so nav works from
+// subpages like /en/imprint/ (where the target sections don't exist).
 const navLinks = [
-  { key: 'about', href: '#about' },
-  { key: 'revision', href: '#revision' },
-  { key: 'history', href: '#history' },
-  { key: 'sponsors', href: '#sponsors' },
-  { key: 'gallery', href: '#gallery' },
-  { key: 'press', href: '#press' },
-  { key: 'contact', href: '#contact' },
+  { key: 'about', href: `${home}#about` },
+  { key: 'revision', href: `${home}#revision` },
+  { key: 'history', href: `${home}#history` },
+  { key: 'sponsors', href: `${home}#sponsors` },
+  { key: 'gallery', href: `${home}#gallery` },
+  { key: 'press', href: `${home}#press` },
+  { key: 'contact', href: `${home}#contact` },
 ] as const;
+const sponsorHref = `${home}#sponsors`;
 ---
 <header class="topbar" data-topbar>
   <div class="topbar-row">
@@ -35,7 +39,7 @@ const navLinks = [
         <span>/</span>
         <span class={locale === 'de' ? 'on' : ''}>DE</span>
       </a>
-      <a href="#sponsors" class="btn primary small">{t(locale, 'becomeSponsor')}</a>
+      <a href={sponsorHref} class="btn primary small">{t(locale, 'becomeSponsor')}</a>
       <input type="checkbox" id="mnav-toggle" class="mnav-toggle" aria-label={t(locale, 'menu')} />
       <label for="mnav-toggle" class="mnav-btn">
         <span></span><span></span><span></span>
@@ -49,7 +53,7 @@ const navLinks = [
         <a href={l.href} class="mnav-link">{t(locale, l.key)}</a>
       ))}
       <a href={otherUrl} class="mnav-link">{t(locale, 'switchTo')}</a>
-      <a href="#sponsors" class="btn primary">{t(locale, 'becomeSponsor')}</a>
+      <a href={sponsorHref} class="btn primary">{t(locale, 'becomeSponsor')}</a>
     </nav>
   </div>
 </header>

@@ -22,6 +22,7 @@ const siteOrigin = Astro.site?.origin ?? 'https://tastatur-und-maus.net';
 const effectiveImage = image ?? `${siteOrigin}/og-default.jpg`;
 const ogLocale = locale === 'en' ? 'en_US' : 'de_DE';
 const ogAlternateLocale = locale === 'en' ? 'de_DE' : 'en_US';
+const umamiWebsiteId = import.meta.env.PUBLIC_UMAMI_WEBSITE_ID;
 ---
 <!doctype html>
 <html lang={locale} dir="ltr">
@@ -54,6 +55,9 @@ const ogAlternateLocale = locale === 'en' ? 'de_DE' : 'en_US';
     <meta name="twitter:image:alt" content={title} />
     {hreflang.map(p => <link rel="alternate" hreflang={p.hreflang} href={p.href} />)}
     <title>{title}</title>
+    {umamiWebsiteId && (
+      <script is:inline defer src="https://analytics.tastatur-und-maus.net/script.js" data-website-id={umamiWebsiteId}></script>
+    )}
     <slot name="head" />
   </head>
   <body>

@@ -35,7 +35,7 @@ Snapshot of what's left after the v1 implementation + post-launch audit sweep. O
 
 ## Ops & analytics
 
-- [ ] Umami analytics at `analytics.tastatur-und-maus.net`.
+- [ ] Umami analytics — script wired in `BaseLayout` and disclosed in the privacy pages; requires creating the site entry in the Umami dashboard and setting `PUBLIC_UMAMI_WEBSITE_ID` at build time.
 - [ ] PR CI workflow (typecheck + unit + e2e) so `main` never breaks between pushes. `deploy.yml` runs only on push-to-main today.
 - [ ] `scripts/fetch-photos.mjs` scraper for `tf.weimarnetz.de` with attribution manifest (supersedes the Unsplash fetcher once real photos land).
 - [ ] Pagefind search — only if content volume grows enough to justify it.
