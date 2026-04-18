@@ -1,0 +1,53 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+import { getCollection } from 'astro:content';
+import type { Locale } from '~/i18n';
+
+interface Props {
+  kicker: string;
+  title: string;
+  locale: Locale;
+}
+const { kicker, title, locale } = Astro.props;
+
+const entries = await getCollection('history', e => e.id.startsWith(`${locale}/`));
+const items = entries[0]?.data.items ?? [];
+---
+<section class="history" id="history">
+  <div class="container">
+    <Kicker>{kicker}</Kicker>
+    <h2>{title}</h2>
+    <ol class="timeline">
+      {items.map(i => (
+        <li class="item">
+          <div class="bar" aria-hidden="true"></div>
+          <div class="year">{i.year}</div>
+          <h4 class="t">{i.title}</h4>
+          <p class="d">{i.description}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .history { padding: 120px 0; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  h2 { font-size: clamp(36px, 5vw, 72px); margin-top: 24px; }
+  .timeline {
+    list-style: none; padding: 0; margin: 48px 0 0;
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px;
+  }
+  .item { position: relative; padding-top: 12px; }
+  .bar {
+    position: absolute; top: 0; left: 0;
+    width: 0; height: 3px; background: var(--color-red);
+    transition: width .25s ease;
+  }
+  .item:hover .bar { width: 100%; }
+  .year { font-family: var(--font-display); font-size: 40px; }
+  .t { font-size: 16px; font-family: var(--font-display); font-weight: 500; margin-top: 10px; }
+  .d { margin-top: 10px; font-size: 14px; color: var(--color-ink-2); line-height: 1.45; }
+  @media (max-width: 1100px) { .timeline { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 600px)  { .timeline { grid-template-columns: repeat(2, 1fr); } .container { padding: 0 20px; } }
+</style>
