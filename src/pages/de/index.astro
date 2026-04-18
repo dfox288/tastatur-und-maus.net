@@ -31,12 +31,12 @@ const entries = (await getCollection('home', e => e.id.startsWith('de/')))
       case 'hero':          return <Hero {...e.data} />;
       case 'ticker':        return <TickerStrip {...e.data} />;
       case 'stats':         return <StatsGrid {...e.data} />;
-      case 'about':         return <AboutSection {...e.data} />;
+      case 'about':         return <AboutSection {...e.data} locale={locale} />;
       case 'revision':      return <RevisionSection {...e.data} locale={locale} />;
       case 'history':       return <HistoryTimeline {...e.data} locale={locale} />;
       case 'sponsorsPitch': return (
         <>
-          <SponsorsPitch {...e.data} />
+          <SponsorsPitch {...e.data} locale={locale} />
           <SponsorTiers locale={locale} />
           <SponsorWall />
         </>
@@ -44,7 +44,7 @@ const entries = (await getCollection('home', e => e.id.startsWith('de/')))
       case 'gallery':       return <Gallery {...e.data} />;
       case 'press':         return <PressKit {...e.data} />;
       case 'news':          return <News {...e.data} locale={locale} />;
-      case 'contact':       return <ContactSection {...e.data} />;
+      case 'contact':       return <ContactSection {...e.data} locale={locale} />;
     }
   })}
 </BaseLayout>

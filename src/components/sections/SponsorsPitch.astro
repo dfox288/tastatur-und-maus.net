@@ -1,6 +1,7 @@
 ---
 import Kicker from '~/components/primitives/Kicker.astro';
 import Button from '~/components/primitives/Button.astro';
+import type { Locale } from '~/i18n';
 
 interface Props {
   kicker: string;
@@ -9,8 +10,10 @@ interface Props {
   audienceFacts: { label: string; value: string }[];
   ctaLabel: string;
   ctaHref: string;
+  locale: Locale;
 }
-const { kicker, title, body, audienceFacts, ctaLabel, ctaHref } = Astro.props;
+const { kicker, title, body, audienceFacts, ctaLabel, ctaHref, locale } = Astro.props;
+const asideLabel = locale === 'en' ? 'Audience at a glance' : 'Publikum auf einen Blick';
 ---
 <section class="pitch" id="sponsors">
   <div class="container">
@@ -18,7 +21,7 @@ const { kicker, title, body, audienceFacts, ctaLabel, ctaHref } = Astro.props;
     <h2>{title}</h2>
     <div class="grid">
       <p class="body">{body}</p>
-      <aside class="card">
+      <aside class="card" aria-label={asideLabel}>
         <dl class="facts">
           {audienceFacts.map(f => (
             <div class="fact">

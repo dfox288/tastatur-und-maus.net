@@ -1,6 +1,7 @@
 ---
 import Kicker from '~/components/primitives/Kicker.astro';
 import Button from '~/components/primitives/Button.astro';
+import type { Locale } from '~/i18n';
 
 interface Props {
   kicker: string;
@@ -11,8 +12,10 @@ interface Props {
   cardBody: string;
   cardCtaLabel: string;
   cardCtaHref: string;
+  locale: Locale;
 }
-const { kicker, title, channels, address, cardHeading, cardBody, cardCtaLabel, cardCtaHref } = Astro.props;
+const { kicker, title, channels, address, cardHeading, cardBody, cardCtaLabel, cardCtaHref, locale } = Astro.props;
+const asideLabel = locale === 'en' ? 'Become a sponsor' : 'Sponsor werden';
 const addressLines = address.split('\n');
 ---
 <section class="contact" id="contact">
@@ -33,7 +36,7 @@ const addressLines = address.split('\n');
           {addressLines.map(l => <div>{l}</div>)}
         </address>
       </div>
-      <aside class="card">
+      <aside class="card" aria-label={asideLabel}>
         <div class="bubble" aria-hidden="true"></div>
         <h3>{cardHeading}</h3>
         <p>{cardBody}</p>

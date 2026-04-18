@@ -28,7 +28,11 @@ const ogAlternateLocale = locale === 'en' ? 'de_DE' : 'en_US';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#f4f4f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#14131a" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/tum-bubble.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
     <link rel="canonical" href={canonical.href} />
     <meta name="description" content={effectiveDescription} />

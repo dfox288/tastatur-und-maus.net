@@ -1,5 +1,6 @@
 ---
 import Kicker from '~/components/primitives/Kicker.astro';
+import type { Locale } from '~/i18n';
 
 interface Props {
   kicker: string;
@@ -7,8 +8,10 @@ interface Props {
   body: string;
   bullets: string[];
   facts: { label: string; value: string }[];
+  locale: Locale;
 }
-const { kicker, title, body, bullets, facts } = Astro.props;
+const { kicker, title, body, bullets, facts, locale } = Astro.props;
+const asideLabel = locale === 'en' ? 'Association facts' : 'Vereinsfakten';
 ---
 <section class="about" id="about">
   <div class="container">
@@ -21,7 +24,7 @@ const { kicker, title, body, bullets, facts } = Astro.props;
           {bullets.map(b => <li>{b}</li>)}
         </ul>
       </div>
-      <aside class="side">
+      <aside class="side" aria-label={asideLabel}>
         <div class="seal" aria-hidden="true">
           <svg viewBox="0 0 200 200" class="seal-svg">
             <defs>
