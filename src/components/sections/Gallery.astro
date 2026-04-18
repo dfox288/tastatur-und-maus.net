@@ -1,0 +1,58 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+
+interface Props {
+  kicker: string;
+  title: string;
+  tiles: { image: string; caption: string; span: '7x3' | '5x2' | '4x2' }[];
+}
+const { kicker, title, tiles } = Astro.props;
+
+const spanClass = (s: string) => `span-${s.replace('x', '-')}`;
+---
+<section class="gallery" id="gallery">
+  <div class="container">
+    <Kicker>{kicker}</Kicker>
+    <h2>{title}</h2>
+    <div class="grid">
+      {tiles.map(t => (
+        <figure class={`tile ${spanClass(t.span)}`} style={`background-image: url('${t.image}')`}>
+          <figcaption>{t.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery { padding: 120px 0; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  h2 { font-size: clamp(36px, 5vw, 72px); margin-top: 24px; }
+  .grid {
+    margin-top: 48px;
+    display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px;
+  }
+  .tile {
+    position: relative;
+    background-size: cover; background-position: center;
+    border-radius: 4px; min-height: 220px;
+    overflow: hidden;
+  }
+  .tile::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(20,19,26,.65) 0%, rgba(20,19,26,0) 40%);
+  }
+  .tile figcaption {
+    position: absolute; left: 16px; bottom: 14px; z-index: 1;
+    color: #fff; font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: .14em; text-transform: uppercase;
+  }
+  .span-7-3 { grid-column: span 7; grid-row: span 3; min-height: 460px; }
+  .span-5-2 { grid-column: span 5; grid-row: span 2; min-height: 300px; }
+  .span-4-2 { grid-column: span 4; grid-row: span 2; min-height: 240px; }
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; }
+    .tile { grid-column: span 1 !important; grid-row: span 1 !important; min-height: 220px; }
+    .container { padding: 0 20px; }
+  }
+</style>
