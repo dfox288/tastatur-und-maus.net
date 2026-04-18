@@ -22,5 +22,5 @@ tiles:
 - image: "/images/gallery-06.jpg"
   caption: Stream desk, 2am
   span: "4x2"
-credit: 'Photography by Viscid — the official Revision event photographer. Full archive at <a href="https://tf.weimarnetz.de/">tf.weimarnetz.de</a>.'
+credit: 'Photography by Viscid — the official Revision event photographer. Full 2026 gallery at <a href="https://tf.weimarnetz.de/revision2026/">tf.weimarnetz.de/revision2026</a>.'
 ---

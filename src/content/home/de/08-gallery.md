@@ -22,5 +22,5 @@ tiles:
 - image: "/images/gallery-06.jpg"
   caption: Streamdesk, 2 Uhr nachts
   span: "4x2"
-credit: 'Fotografie von Viscid — dem offiziellen Revision-Fotografen. Gesamtarchiv auf <a href="https://tf.weimarnetz.de/">tf.weimarnetz.de</a>.'
+credit: 'Fotografie von Viscid — dem offiziellen Revision-Fotografen. Komplette 2026-Galerie auf <a href="https://tf.weimarnetz.de/revision2026/">tf.weimarnetz.de/revision2026</a>.'
 ---

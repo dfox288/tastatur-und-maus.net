@@ -24,7 +24,10 @@ const lbl = LABELS[locale];
   <div class="container">
     <div class="card">
       <Kicker>{kicker}</Kicker>
-      <h2>{title}</h2>
+      <div class="title-row">
+        <h2>{title}</h2>
+        <img class="rev-logo" src="/revision-logo.svg" alt="Revision" loading="lazy" decoding="async" />
+      </div>
       <p class="body">{body}</p>
       <dl class="meta">
         <div><dt>{lbl.dates}</dt><dd>{meta.dates}</dd></div>
@@ -45,7 +48,19 @@ const lbl = LABELS[locale];
     background: var(--color-ink); color: var(--color-paper);
     padding: 80px; border-radius: 4px;
   }
-  h2 { font-size: clamp(36px, 5vw, 72px); color: var(--color-paper); margin-top: 20px; }
+  .title-row {
+    margin-top: 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 40px; flex-wrap: wrap;
+  }
+  h2 { font-size: clamp(36px, 5vw, 72px); color: var(--color-paper); margin: 0; }
+  .rev-logo {
+    width: clamp(96px, 12vw, 168px); height: auto;
+    flex-shrink: 0;
+  }
+  @media (max-width: 720px) {
+    .rev-logo { width: 80px; }
+  }
   .body { margin-top: 28px; font-size: clamp(16px, 1.15vw, 19px); max-width: 60ch; color: var(--color-rule); line-height: 1.55; }
   .meta {
     margin-top: 48px;
