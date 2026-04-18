@@ -3,7 +3,9 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
-  "engines": { "node": ">=22.12.0" },
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -18,17 +20,18 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.2",
-    "@fontsource/inter-tight": "^5.2.7",
     "@fontsource/instrument-serif": "^5.2.8",
+    "@fontsource/inter-tight": "^5.2.7",
     "@fontsource/jetbrains-mono": "^5.2.8",
     "astro": "^6.1.5"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.8",
     "@playwright/test": "^1.49.0",
     "@tailwindcss/vite": "^4.2.2",
     "@types/node": "^22.10.0",
     "tailwindcss": "^4.2.2",
-    "typescript": "^5.7.2",
+    "typescript": "^5.9.3",
     "vitest": "^2.1.8"
   }
 }
