@@ -15,7 +15,7 @@ facts:
   - label: "Non-profit since"
     value: "2011"
   - label: "Registered"
-    value: "Saarbrücken, Germany"
+    value: "Hemsbach, Germany"
   - label: "Volunteers"
     value: "40+"
   - label: "Revision editions"

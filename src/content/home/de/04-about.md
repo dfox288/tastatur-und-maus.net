@@ -15,7 +15,7 @@ facts:
   - label: "Gemeinnützig seit"
     value: "2011"
   - label: "Registriert"
-    value: "Saarbrücken, Deutschland"
+    value: "Hemsbach, Deutschland"
   - label: "Ehrenamtliche"
     value: "40+"
   - label: "Revision-Ausgaben"
