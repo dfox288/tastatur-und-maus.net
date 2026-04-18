@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import type { Locale } from '~/i18n';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+
+const entries = await getCollection('sponsors', e => e.id.startsWith(`${locale}/`));
+const tiers = entries[0]?.data.tiers ?? [];
+---
+<section class="tiers">
+  <div class="container">
+    <div class="grid">
+      {tiers.map(t => (
+        <article class={`tier ${t.highlight ? 'highlight' : ''}`}>
+          {t.highlight && <span class="badge">{t.highlightLabel}</span>}
+          <h3 class="name">{t.name}</h3>
+          <div class="price">{t.price}</div>
+          <ul class="perks">
+            {t.perks.map(p => <li>{p}</li>)}
+          </ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .tiers { padding: 0 0 120px; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .tier {
+    background: var(--color-paper-2); padding: 32px;
+    border-radius: 4px; border: 1px solid var(--color-rule);
+    position: relative; display: flex; flex-direction: column;
+  }
+  .tier.highlight { background: var(--color-ink); color: var(--color-paper); border-color: var(--color-ink); }
+  .tier.highlight .name { color: var(--color-paper); }
+  .tier.highlight .price { color: var(--color-rule); }
+  .tier.highlight .perks li { color: var(--color-rule); }
+  .tier.highlight .perks li::before { color: var(--color-red); }
+  .badge {
+    position: absolute; top: 20px; right: 20px;
+    background: var(--color-red); color: #fff;
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: .14em; text-transform: uppercase;
+    padding: 4px 10px; border-radius: 999px;
+  }
+  .name { font-family: var(--font-display); font-size: 36px; font-weight: 500; }
+  .price { font-family: var(--font-mono); font-size: 13px; color: var(--color-muted); margin-top: 6px; }
+  .perks { list-style: none; padding: 0; margin: 24px 0 0; flex: 1; }
+  .perks li {
+    padding-left: 28px; position: relative; margin: 12px 0;
+    color: var(--color-ink-2); line-height: 1.4;
+  }
+  .perks li::before {
+    content: "+"; position: absolute; left: 0;
+    color: var(--color-red); font-family: var(--font-mono);
+  }
+  @media (max-width: 1000px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px)  { .grid { grid-template-columns: 1fr; } .container { padding: 0 20px; } }
+</style>
