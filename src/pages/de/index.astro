@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import Hero from '~/components/sections/Hero.astro';
+import TickerStrip from '~/components/sections/TickerStrip.astro';
+import StatsGrid from '~/components/sections/StatsGrid.astro';
+import AboutSection from '~/components/sections/AboutSection.astro';
+import RevisionSection from '~/components/sections/RevisionSection.astro';
+import HistoryTimeline from '~/components/sections/HistoryTimeline.astro';
+import SponsorsPitch from '~/components/sections/SponsorsPitch.astro';
+import SponsorTiers from '~/components/sections/SponsorTiers.astro';
+import SponsorWall from '~/components/sections/SponsorWall.astro';
+import Gallery from '~/components/sections/Gallery.astro';
+import PressKit from '~/components/sections/PressKit.astro';
+import News from '~/components/sections/News.astro';
+import ContactSection from '~/components/sections/ContactSection.astro';
+
+const locale = 'de' as const;
+const entries = (await getCollection('home', e => e.id.startsWith('de/')))
+  .sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Tastatur und Maus e.V. — Wir lieben Computer-Kunst." locale={locale}>
+  {entries.map(e => {
+    switch (e.data.section) {
+      case 'hero':          return <Hero {...e.data} />;
+      case 'ticker':        return <TickerStrip {...e.data} />;
+      case 'stats':         return <StatsGrid {...e.data} />;
+      case 'about':         return <AboutSection {...e.data} />;
+      case 'revision':      return <RevisionSection {...e.data} locale={locale} />;
+      case 'history':       return <HistoryTimeline {...e.data} locale={locale} />;
+      case 'sponsorsPitch': return (
+        <>
+          <SponsorsPitch {...e.data} />
+          <SponsorTiers locale={locale} />
+          <SponsorWall />
+        </>
+      );
+      case 'gallery':       return <Gallery {...e.data} />;
+      case 'press':         return <PressKit {...e.data} />;
+      case 'news':          return <News {...e.data} locale={locale} />;
+      case 'contact':       return <ContactSection {...e.data} />;
+    }
+  })}
+</BaseLayout>
