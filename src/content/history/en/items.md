@@ -5,7 +5,7 @@ items:
     description: "Demoscene organisers found TUM e.V. as the association behind The Ultimate Meeting — no more running the party on personal credit cards."
   - year: "2011"
     title: "First Revision"
-    description: "The first Revision takes place at the E-Werk over Easter, picking up the torch from Breakpoint. TUM e.V. gains gemeinnütziger (non-profit) status in the same year."
+    description: "The first Revision takes place at the E Werk over Easter, picking up the torch from Breakpoint. TUM e.V. gains gemeinnütziger (non-profit) status in the same year."
   - year: "2013"
     title: "Focus on Revision"
     description: "The Ultimate Meeting runs its last edition. From 2014 on, Revision is TUM e.V.'s single focus."
@@ -20,5 +20,5 @@ items:
     description: "Our archive channel passes ten thousand subscribers and millions of lifetime views."
   - year: "2027"
     title: "Seventeenth edition"
-    description: "Revision 2027. E-Werk, Saarbrücken. Easter weekend. Same place it's always been."
+    description: "Revision 2027. E Werk, Saarbrücken. Easter weekend. Same place it's always been."
 ---

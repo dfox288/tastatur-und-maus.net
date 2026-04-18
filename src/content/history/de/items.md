@@ -5,7 +5,7 @@ items:
     description: "Demoszene-Organisatoren gründen TUM e.V. als Träger für The Ultimate Meeting — keine Party mehr aus der eigenen Tasche."
   - year: "2011"
     title: "Erste Revision"
-    description: "Die erste Revision findet zu Ostern im E-Werk statt und übernimmt das Erbe von Breakpoint. Im selben Jahr wird TUM e.V. als gemeinnützig anerkannt."
+    description: "Die erste Revision findet zu Ostern im E Werk statt und übernimmt das Erbe von Breakpoint. Im selben Jahr wird TUM e.V. als gemeinnützig anerkannt."
   - year: "2013"
     title: "Fokus auf Revision"
     description: "The Ultimate Meeting findet zum letzten Mal statt. Ab 2014 ist die Revision der einzige Fokus von TUM e.V."
@@ -20,5 +20,5 @@ items:
     description: "Unser Archiv-Kanal überschreitet zehntausend Abonnenten und Millionen von Aufrufen."
   - year: "2027"
     title: "Siebzehnte Ausgabe"
-    description: "Revision 2027. E-Werk, Saarbrücken. Osterwochenende. Dort, wo sie immer war."
+    description: "Revision 2027. E Werk, Saarbrücken. Osterwochenende. Dort, wo sie immer war."
 ---

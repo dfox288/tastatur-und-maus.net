@@ -5,7 +5,7 @@ tokens:
   - text: Revision 2027
     emphasized: true
   - text: "26.–29. März"
-  - text: E-Werk Saarbrücken
+  - text: E Werk Saarbrücken
   - text: PC Demo · 4K · 64K
   - text: Shader Showdown
     emphasized: true
