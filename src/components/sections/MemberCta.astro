@@ -1,0 +1,58 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+import Button from '~/components/primitives/Button.astro';
+
+interface Props {
+  kicker: string;
+  title: string;
+  body: string;
+  ctaLabel: string;
+  ctaHref: string;
+}
+const { kicker, title, body, ctaLabel, ctaHref } = Astro.props;
+---
+<section class="member">
+  <div class="container">
+    <div class="grid">
+      <div class="head">
+        <Kicker>{kicker}</Kicker>
+        <h3>{title}</h3>
+      </div>
+      <div class="right">
+        <p class="body">{body}</p>
+        <Button href={ctaHref} variant="ghost">{ctaLabel}</Button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .member {
+    padding: 80px 0;
+    border-top: 1px solid var(--color-rule);
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 56px;
+    align-items: start;
+  }
+  h3 {
+    font-size: clamp(28px, 3.4vw, 48px);
+    margin-top: 16px;
+    max-width: 14ch;
+  }
+  .body {
+    color: var(--color-ink-2);
+    line-height: 1.55;
+    margin: 0 0 24px;
+    max-width: 60ch;
+  }
+  @media (max-width: 720px) {
+    .member { padding: 64px 0; }
+    .container { padding: 0 20px; }
+    .grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+</style>

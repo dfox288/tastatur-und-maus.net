@@ -143,6 +143,16 @@ const sponsorWallMarker = z.object({
   order: z.number(),
 });
 
+const member = z.object({
+  section: z.literal('member'),
+  order: z.number(),
+  kicker: z.string(),
+  title: z.string(),
+  body: z.string(),
+  ctaLabel: z.string(),
+  ctaHref: z.string(),
+});
+
 const gallery = z.object({
   section: z.literal('gallery'),
   order: z.number(),
@@ -196,6 +206,7 @@ export const homeSectionSchema = z.discriminatedUnion('section', [
   hero, ticker, stats, about,
   demosceneExplainer,
   revision, history,
+  member,
   sponsorsPitch, moneyBreakdown, sponsorTiersMarker, trustBlock, faq, pastSponsors, sponsorWallMarker,
   gallery, press, news, contact,
 ]);
