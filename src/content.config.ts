@@ -90,6 +90,59 @@ const sponsorsPitch = z.object({
   ctaHref: z.string(),
 });
 
+const demosceneExplainer = z.object({
+  section: z.literal('demosceneExplainer'),
+  order: z.number(),
+  kicker: z.string(),
+  title: z.string(),
+  body: z.string(),
+});
+
+const moneyBreakdown = z.object({
+  section: z.literal('moneyBreakdown'),
+  order: z.number(),
+  kicker: z.string(),
+  title: z.string(),
+  items: z.array(z.string()).min(1),
+});
+
+const sponsorTiersMarker = z.object({
+  section: z.literal('sponsorTiers'),
+  order: z.number(),
+});
+
+const trustBlock = z.object({
+  section: z.literal('trustBlock'),
+  order: z.number(),
+  kicker: z.string(),
+  title: z.string(),
+  items: z.array(z.string()).min(1),
+});
+
+const faq = z.object({
+  section: z.literal('faq'),
+  order: z.number(),
+  kicker: z.string(),
+  title: z.string(),
+  items: z.array(z.object({
+    q: z.string(),
+    a: z.string(),
+  })).min(1),
+});
+
+const pastSponsors = z.object({
+  section: z.literal('pastSponsors'),
+  order: z.number(),
+  kicker: z.string(),
+  title: z.string(),
+  body: z.string(),
+});
+
+const sponsorWallMarker = z.object({
+  section: z.literal('sponsorWall'),
+  order: z.number(),
+});
+
 const gallery = z.object({
   section: z.literal('gallery'),
   order: z.number(),
@@ -139,8 +192,11 @@ const contact = z.object({
 });
 
 export const homeSectionSchema = z.discriminatedUnion('section', [
-  hero, ticker, stats, about, revision, history,
-  sponsorsPitch, gallery, press, news, contact,
+  hero, ticker, stats, about,
+  demosceneExplainer,
+  revision, history,
+  sponsorsPitch, moneyBreakdown, sponsorTiersMarker, trustBlock, faq, pastSponsors, sponsorWallMarker,
+  gallery, press, news, contact,
 ]);
 
 export const collections = {

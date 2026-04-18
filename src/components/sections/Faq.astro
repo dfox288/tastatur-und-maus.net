@@ -1,0 +1,48 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+
+interface Props {
+  kicker: string;
+  title: string;
+  items: { q: string; a: string }[];
+}
+const { kicker, title, items } = Astro.props;
+---
+<section class="faq">
+  <div class="container">
+    <Kicker>{kicker}</Kicker>
+    <h3>{title}</h3>
+    <dl class="qa">
+      {items.map(item => (
+        <div class="pair">
+          <dt>{item.q}</dt>
+          <dd>{item.a}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</section>
+
+<style>
+  .faq { padding: 80px 0; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  h3 { font-size: clamp(28px, 3vw, 44px); margin-top: 16px; }
+  .qa { margin-top: 40px; display: flex; flex-direction: column; gap: 0; max-width: 80ch; }
+  .pair {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--color-rule);
+  }
+  .pair:first-child { border-top: 1px solid var(--color-rule); }
+  .pair dt {
+    font-family: var(--font-display);
+    font-size: clamp(20px, 2vw, 26px);
+    color: var(--color-ink);
+    margin-bottom: 10px;
+  }
+  .pair dd {
+    margin: 0; line-height: 1.6;
+    color: var(--color-ink-2);
+    font-size: clamp(15px, 1.1vw, 17px);
+  }
+  @media (max-width: 720px) { .container { padding: 0 20px; } }
+</style>

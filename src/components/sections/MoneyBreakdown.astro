@@ -1,0 +1,38 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+
+interface Props { kicker: string; title: string; items: string[]; }
+const { kicker, title, items } = Astro.props;
+---
+<section class="money">
+  <div class="container">
+    <Kicker>{kicker}</Kicker>
+    <h3>{title}</h3>
+    <ul class="list">
+      {items.map(item => <li>{item}</li>)}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .money { padding: 80px 0; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  h3 { font-size: clamp(28px, 3vw, 44px); margin-top: 16px; max-width: 24ch; }
+  .list {
+    margin-top: 32px; padding: 0; list-style: none;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px 40px;
+    max-width: 1000px;
+  }
+  .list li {
+    position: relative; padding-left: 28px;
+    color: var(--color-ink-2); line-height: 1.5;
+  }
+  .list li::before {
+    content: "→"; position: absolute; left: 0;
+    color: var(--color-red); font-family: var(--font-mono);
+  }
+  @media (max-width: 720px) {
+    .container { padding: 0 20px; }
+    .list { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,25 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+
+interface Props { kicker: string; title: string; body: string; }
+const { kicker, title, body } = Astro.props;
+---
+<section class="past">
+  <div class="container">
+    <Kicker>{kicker}</Kicker>
+    <h3>{title}</h3>
+    <p class="body">{body}</p>
+  </div>
+</section>
+
+<style>
+  .past { padding: 64px 0; background: var(--color-paper-2); }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  h3 { font-size: clamp(24px, 2.4vw, 34px); margin-top: 16px; max-width: 24ch; }
+  .body {
+    margin-top: 20px; max-width: 62ch;
+    color: var(--color-ink-2); line-height: 1.6;
+    font-size: clamp(15px, 1.1vw, 17px);
+  }
+  @media (max-width: 720px) { .container { padding: 0 20px; } }
+</style>

@@ -10,6 +10,11 @@ import HistoryTimeline from '~/components/sections/HistoryTimeline.astro';
 import SponsorsPitch from '~/components/sections/SponsorsPitch.astro';
 import SponsorTiers from '~/components/sections/SponsorTiers.astro';
 import SponsorWall from '~/components/sections/SponsorWall.astro';
+import DemosceneExplainer from '~/components/sections/DemosceneExplainer.astro';
+import MoneyBreakdown from '~/components/sections/MoneyBreakdown.astro';
+import TrustBlock from '~/components/sections/TrustBlock.astro';
+import Faq from '~/components/sections/Faq.astro';
+import PastSponsors from '~/components/sections/PastSponsors.astro';
 import Gallery from '~/components/sections/Gallery.astro';
 import PressKit from '~/components/sections/PressKit.astro';
 import News from '~/components/sections/News.astro';
@@ -34,14 +39,15 @@ const entries = (await getCollection('home', e => e.id.startsWith('de/')))
       case 'about':         return <AboutSection {...e.data} locale={locale} />;
       case 'revision':      return <RevisionSection {...e.data} locale={locale} />;
       case 'history':       return <HistoryTimeline {...e.data} locale={locale} />;
-      case 'sponsorsPitch': return (
-        <>
-          <SponsorsPitch {...e.data} locale={locale} />
-          <SponsorTiers locale={locale} />
-          <SponsorWall />
-        </>
-      );
-      case 'gallery':       return <Gallery {...e.data} />;
+      case 'sponsorsPitch':      return <SponsorsPitch {...e.data} locale={locale} />;
+      case 'demosceneExplainer': return <DemosceneExplainer {...e.data} />;
+      case 'moneyBreakdown':     return <MoneyBreakdown {...e.data} />;
+      case 'sponsorTiers':       return <SponsorTiers locale={locale} />;
+      case 'trustBlock':         return <TrustBlock {...e.data} />;
+      case 'faq':                return <Faq {...e.data} />;
+      case 'pastSponsors':       return <PastSponsors {...e.data} />;
+      case 'sponsorWall':        return <SponsorWall />;
+      case 'gallery':            return <Gallery {...e.data} />;
       case 'press':         return <PressKit {...e.data} />;
       case 'news':          return <News {...e.data} locale={locale} />;
       case 'contact':       return <ContactSection {...e.data} locale={locale} />;
