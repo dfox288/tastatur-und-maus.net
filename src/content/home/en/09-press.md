@@ -12,8 +12,8 @@ files:
   meta: "PDF · 2 MB"
   href: "/press/brand-guidelines.pdf"
 - name: Photo archive
-  meta: "External · tf.weimarnetz.de"
-  href: "https://tf.weimarnetz.de/"
+  meta: "External · tf.weimarnetz.de/revision2026"
+  href: "https://tf.weimarnetz.de/revision2026/"
 - name: Fact sheet
   meta: "PDF · 180 KB"
   href: "/press/fact-sheet.pdf"
