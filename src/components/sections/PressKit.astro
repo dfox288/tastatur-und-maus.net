@@ -1,0 +1,54 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+
+interface Props {
+  kicker: string;
+  title: string;
+  body: string;
+  files: { name: string; meta: string; href: string }[];
+}
+const { kicker, title, body, files } = Astro.props;
+---
+<section class="press" id="press">
+  <div class="container">
+    <div class="grid">
+      <div class="left">
+        <Kicker>{kicker}</Kicker>
+        <h2>{title}</h2>
+        <p class="body">{body}</p>
+      </div>
+      <ul class="files">
+        {files.map(f => (
+          <li><a href={f.href} class="row">
+            <span class="name">{f.name}</span>
+            <span class="meta">{f.meta}</span>
+            <span class="arr">↓</span>
+          </a></li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</section>
+
+<style>
+  .press { padding: 120px 0; background: var(--color-paper-2); }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+  h2 { font-size: clamp(36px, 5vw, 72px); margin-top: 24px; max-width: 14ch; }
+  .body { margin-top: 28px; font-size: clamp(16px, 1.15vw, 19px); color: var(--color-ink-2); line-height: 1.55; max-width: 50ch; }
+  .files { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
+  .row {
+    display: grid; grid-template-columns: 1fr auto auto;
+    align-items: baseline; gap: 20px;
+    padding: 18px 0; border-bottom: 1px solid var(--color-rule);
+    text-decoration: none; color: var(--color-ink);
+    transition: padding-left .2s, color .2s;
+  }
+  .files li:first-child .row { border-top: 1px solid var(--color-rule); }
+  .row:hover { padding-left: 12px; color: var(--color-red); }
+  .name { font-family: var(--font-display); font-size: 22px; }
+  .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-muted); }
+  .arr { font-family: var(--font-mono); font-size: 14px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) { .container { padding: 0 20px; } }
+</style>
