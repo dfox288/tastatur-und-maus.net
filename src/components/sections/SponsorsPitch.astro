@@ -1,0 +1,57 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+import Button from '~/components/primitives/Button.astro';
+
+interface Props {
+  kicker: string;
+  title: string;
+  body: string;
+  audienceFacts: { label: string; value: string }[];
+  ctaLabel: string;
+  ctaHref: string;
+}
+const { kicker, title, body, audienceFacts, ctaLabel, ctaHref } = Astro.props;
+---
+<section class="pitch" id="sponsors">
+  <div class="container">
+    <Kicker>{kicker}</Kicker>
+    <h2>{title}</h2>
+    <div class="grid">
+      <p class="body">{body}</p>
+      <aside class="card">
+        <dl class="facts">
+          {audienceFacts.map(f => (
+            <div class="fact">
+              <dt>{f.label}</dt>
+              <dd>{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </aside>
+    </div>
+    <div class="cta-row">
+      <Button href={ctaHref} variant="primary">{ctaLabel}</Button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .pitch { padding: 120px 0; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  h2 { font-size: clamp(36px, 5vw, 72px); margin-top: 24px; max-width: 20ch; }
+  .grid { margin-top: 48px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
+  .body { font-size: clamp(16px, 1.15vw, 19px); color: var(--color-ink-2); line-height: 1.55; max-width: 60ch; }
+  .card {
+    background: var(--color-paper-2); padding: 32px; border-radius: 4px;
+    border: 1px solid var(--color-rule);
+    position: sticky; top: 100px;
+  }
+  .facts { display: flex; flex-direction: column; gap: 14px; margin: 0; }
+  .fact { display: flex; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--color-rule); padding-bottom: 10px; }
+  .fact:last-child { border-bottom: none; }
+  .fact dt { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--color-muted); }
+  .fact dd { margin: 0; font-family: var(--font-display); font-size: 18px; }
+  .cta-row { margin-top: 48px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } .card { position: static; } }
+  @media (max-width: 720px) { .container { padding: 0 20px; } }
+</style>
