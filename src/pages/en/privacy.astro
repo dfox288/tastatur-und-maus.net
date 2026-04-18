@@ -1,0 +1,18 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+---
+<BaseLayout title="Privacy — Tastatur und Maus e.V." locale="en">
+  <article class="legal-page">
+    <h1>Privacy</h1>
+    <p>This website is statically generated and self-hosted. We do not set tracking cookies or run analytics.</p>
+    <p>Fonts, images, and all other assets are served from our own infrastructure — no third-party CDN requests.</p>
+    <p>Contact form submissions (when enabled) are processed only for the purpose of answering your enquiry.</p>
+    <p><em>Full privacy policy pending — placeholder for v1.</em></p>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal-page { max-width: 720px; margin: 80px auto; padding: 0 40px; }
+  h1 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 32px; }
+  p { margin: 14px 0; line-height: 1.55; color: var(--color-ink-2); }
+</style>

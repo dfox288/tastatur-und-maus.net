@@ -1,0 +1,17 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+---
+<BaseLayout title="Not found / Nicht gefunden" locale="en">
+  <article class="nf">
+    <h1>404</h1>
+    <p class="en">This page does not exist. Return to the <a href="/en/">home page</a>.</p>
+    <p class="de">Diese Seite existiert nicht. Zurück zur <a href="/de/">Startseite</a>.</p>
+  </article>
+</BaseLayout>
+
+<style>
+  .nf { max-width: 640px; margin: 120px auto; padding: 0 40px; text-align: center; }
+  h1 { font-size: clamp(80px, 14vw, 180px); color: var(--color-red); }
+  p { margin: 20px 0; font-size: 18px; color: var(--color-ink-2); }
+  p a { color: var(--color-red); }
+</style>

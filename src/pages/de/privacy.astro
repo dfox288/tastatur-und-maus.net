@@ -1,0 +1,18 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+---
+<BaseLayout title="Datenschutz — Tastatur und Maus e.V." locale="de">
+  <article class="legal-page">
+    <h1>Datenschutz</h1>
+    <p>Diese Website wird statisch generiert und auf eigener Infrastruktur gehostet. Wir setzen keine Tracking-Cookies und betreiben keine Analyse-Tools.</p>
+    <p>Schriftarten, Bilder und alle weiteren Assets werden aus eigener Hand ausgeliefert — keine CDN-Anfragen an Dritte.</p>
+    <p>Kontaktanfragen (sobald das Formular aktiv ist) werden ausschließlich zur Beantwortung Ihrer Anfrage verarbeitet.</p>
+    <p><em>Vollständige Datenschutzerklärung folgt — Platzhalter für v1.</em></p>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal-page { max-width: 720px; margin: 80px auto; padding: 0 40px; }
+  h1 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 32px; }
+  p { margin: 14px 0; line-height: 1.55; color: var(--color-ink-2); }
+</style>

@@ -1,0 +1,18 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+---
+<BaseLayout title="Verhaltenskodex — Tastatur und Maus e.V." locale="de">
+  <article class="legal-page">
+    <h1>Verhaltenskodex</h1>
+    <p>Revision ist ein offener Raum für kreative Menschen aller Hintergründe. Wir erwarten, dass sich alle — Besuchende, Vortragende, Helfende und Sponsoren — respektvoll begegnen.</p>
+    <p>Belästigung wird nicht toleriert. Meldungen bitte an <a href="mailto:safety@tastatur-und-maus.net">safety@tastatur-und-maus.net</a>.</p>
+    <p><em>Vollständiger Verhaltenskodex folgt — Platzhalter für v1.</em></p>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal-page { max-width: 720px; margin: 80px auto; padding: 0 40px; }
+  h1 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 32px; }
+  p { margin: 14px 0; line-height: 1.55; color: var(--color-ink-2); }
+  a { color: var(--color-red); }
+</style>

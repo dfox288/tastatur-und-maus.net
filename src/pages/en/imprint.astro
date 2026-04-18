@@ -1,0 +1,20 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+---
+<BaseLayout title="Imprint — Tastatur und Maus e.V." locale="en">
+  <article class="legal-page">
+    <h1>Imprint</h1>
+    <p><strong>Tastatur und Maus e.V.</strong></p>
+    <p>c/o Vorstand<br />66111 Saarbrücken<br />Germany</p>
+    <p>Email: <a href="mailto:info@tastatur-und-maus.net">info@tastatur-und-maus.net</a></p>
+    <p>Registered as a non-profit association (e.V.) at Amtsgericht Saarbrücken.</p>
+    <p><em>Full imprint content pending — placeholder for v1.</em></p>
+  </article>
+</BaseLayout>
+
+<style>
+  .legal-page { max-width: 720px; margin: 80px auto; padding: 0 40px; }
+  h1 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 32px; }
+  p { margin: 14px 0; line-height: 1.55; color: var(--color-ink-2); }
+  a { color: var(--color-red); }
+</style>
