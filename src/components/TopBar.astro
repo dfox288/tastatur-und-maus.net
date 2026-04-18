@@ -57,10 +57,38 @@ const navLinks = [
 <script is:inline>
   (function () {
     const bar = document.querySelector('[data-topbar]');
-    if (!bar) return;
-    const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 8);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    if (bar) {
+      const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 8);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+    }
+
+    const toggle = document.getElementById('mnav-toggle');
+    if (toggle) {
+      // Lock body scroll while the mobile drawer is open.
+      const applyLock = () => {
+        document.body.style.overflow = toggle.checked ? 'hidden' : '';
+      };
+      toggle.addEventListener('change', applyLock);
+
+      // Escape closes the drawer.
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && toggle.checked) {
+          toggle.checked = false;
+          applyLock();
+        }
+      });
+
+      // If the user resizes up to desktop while drawer is open, release lock.
+      const mq = window.matchMedia('(min-width: 981px)');
+      const onMqChange = () => {
+        if (mq.matches && toggle.checked) {
+          toggle.checked = false;
+          applyLock();
+        }
+      };
+      mq.addEventListener('change', onMqChange);
+    }
   })();
 </script>
 
@@ -112,14 +140,7 @@ const navLinks = [
 
   /* Mobile drawer */
   .mnav-btn { display: none; }
-  .mnav-toggle {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    width: 1px; height: 1px;
-    margin: 0;
-    /* keep it in flow but invisible so it can still receive focus */
-  }
+  .mnav-toggle { display: none; }
   .mnav-toggle:focus-visible ~ .mnav-btn {
     outline: 2px solid var(--color-red);
     outline-offset: 4px;
@@ -129,9 +150,21 @@ const navLinks = [
   @media (max-width: 980px) {
     .nav { display: none; }
     .top-right .btn { display: none; }
+    .mnav-toggle {
+      display: block;
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      width: 1px; height: 1px;
+      margin: 0;
+    }
     .mnav-btn {
-      display: inline-flex; flex-direction: column; gap: 4px;
-      width: 28px; cursor: pointer;
+      display: inline-flex; flex-direction: column;
+      justify-content: center; align-items: stretch;
+      gap: 4px;
+      width: 44px; height: 44px;
+      padding: 0 8px;
+      cursor: pointer;
     }
     .mnav-btn span {
       display: block; height: 2px; background: var(--color-ink);
