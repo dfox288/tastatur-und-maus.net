@@ -1,0 +1,97 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+
+interface Props {
+  kicker: string;
+  title: string;
+  body: string;
+  bullets: string[];
+  facts: { label: string; value: string }[];
+}
+const { kicker, title, body, bullets, facts } = Astro.props;
+---
+<section class="about" id="about">
+  <div class="container">
+    <div class="grid">
+      <div class="left">
+        <Kicker>{kicker}</Kicker>
+        <h2>{title}</h2>
+        <p class="body">{body}</p>
+        <ul class="bullets">
+          {bullets.map(b => <li>{b}</li>)}
+        </ul>
+      </div>
+      <aside class="side">
+        <div class="seal" aria-hidden="true">
+          <svg viewBox="0 0 200 200" class="seal-svg">
+            <defs>
+              <path id="sealArc" d="M 100,100 m -82,0 a 82,82 0 1,1 164,0 a 82,82 0 1,1 -164,0" />
+            </defs>
+            <text class="seal-text">
+              <textPath href="#sealArc">TASTATUR UND MAUS · e.V. · GEMEINNÜTZIG · SINCE 2008 · </textPath>
+            </text>
+          </svg>
+          <div class="core">TUM</div>
+        </div>
+        <dl class="facts">
+          {facts.map(f => (
+            <div class="fact">
+              <dt>{f.label}</dt>
+              <dd>{f.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about { padding: 120px 0; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  .grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
+  h2 { font-size: clamp(36px, 5vw, 72px); margin-top: 24px; }
+  .body { margin-top: 28px; font-size: clamp(16px, 1.15vw, 19px); max-width: 60ch; color: var(--color-ink-2); line-height: 1.55; }
+  .bullets { margin-top: 28px; padding-left: 0; list-style: none; }
+  .bullets li {
+    padding-left: 28px; position: relative; color: var(--color-ink-2);
+    line-height: 1.5; margin: 10px 0;
+  }
+  .bullets li::before {
+    content: "→"; position: absolute; left: 0;
+    color: var(--color-red); font-family: var(--font-mono);
+  }
+  .side {
+    position: sticky; top: 100px;
+    background: var(--color-paper-2);
+    padding: 32px; border-radius: 4px;
+    border: 1px solid var(--color-rule);
+  }
+  .seal {
+    position: relative; width: 200px; height: 200px;
+    margin: 0 auto 24px;
+  }
+  .seal-svg { width: 100%; height: 100%; animation: rotate 30s linear infinite; }
+  @keyframes rotate { to { transform: rotate(360deg); } }
+  .seal-text {
+    font-family: var(--font-mono); font-size: 9px;
+    letter-spacing: .2em; fill: var(--color-ink);
+  }
+  .seal .core {
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    font-family: var(--font-display); font-style: italic;
+    font-size: 36px; color: var(--color-red);
+  }
+  .facts { display: flex; flex-direction: column; gap: 14px; margin: 0; }
+  .fact { display: flex; justify-content: space-between; gap: 20px; border-bottom: 1px solid var(--color-rule); padding-bottom: 10px; }
+  .fact:last-child { border-bottom: none; }
+  .fact dt {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .fact dd { margin: 0; font-family: var(--font-display); font-size: 16px; }
+  @media (max-width: 900px) { .grid { grid-template-columns: 1fr; } .side { position: static; } }
+  @media (max-width: 720px) { .container { padding: 0 20px; } }
+</style>
