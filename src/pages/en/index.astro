@@ -16,6 +16,7 @@ import TrustBlock from '~/components/sections/TrustBlock.astro';
 import Faq from '~/components/sections/Faq.astro';
 import PastSponsors from '~/components/sections/PastSponsors.astro';
 import MemberCta from '~/components/sections/MemberCta.astro';
+import Parties from '~/components/sections/Parties.astro';
 import Gallery from '~/components/sections/Gallery.astro';
 import PressKit from '~/components/sections/PressKit.astro';
 import News from '~/components/sections/News.astro';
@@ -40,6 +41,7 @@ const entries = (await getCollection('home', e => e.id.startsWith('en/')))
       case 'about':         return <AboutSection {...e.data} locale={locale} />;
       case 'revision':      return <RevisionSection {...e.data} locale={locale} />;
       case 'history':       return <HistoryTimeline {...e.data} locale={locale} />;
+      case 'parties':       return <Parties {...e.data} />;
       case 'member':        return <MemberCta {...e.data} />;
       case 'sponsorsPitch':      return <SponsorsPitch {...e.data} locale={locale} />;
       case 'demosceneExplainer': return <DemosceneExplainer {...e.data} />;

@@ -153,6 +153,30 @@ const member = z.object({
   ctaHref: z.string(),
 });
 
+const parties = z.object({
+  section: z.literal('parties'),
+  order: z.number(),
+  kicker: z.string(),
+  title: z.string(),
+  body: z.string(),
+  organised: z.object({
+    heading: z.string(),
+    items: z.array(z.object({
+      name: z.string(),
+      years: z.string(),
+      note: z.string().optional(),
+    })).min(1),
+  }),
+  supported: z.object({
+    heading: z.string(),
+    items: z.array(z.object({
+      name: z.string(),
+      meta: z.string().optional(),
+    })).min(1),
+    trailing: z.string().optional(),
+  }),
+});
+
 const gallery = z.object({
   section: z.literal('gallery'),
   order: z.number(),
@@ -206,7 +230,7 @@ export const homeSectionSchema = z.discriminatedUnion('section', [
   hero, ticker, stats, about,
   demosceneExplainer,
   revision, history,
-  member,
+  parties, member,
   sponsorsPitch, moneyBreakdown, sponsorTiersMarker, trustBlock, faq, pastSponsors, sponsorWallMarker,
   gallery, press, news, contact,
 ]);

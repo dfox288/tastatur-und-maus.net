@@ -1,0 +1,135 @@
+---
+import Kicker from '~/components/primitives/Kicker.astro';
+
+interface Props {
+  kicker: string;
+  title: string;
+  body: string;
+  organised: {
+    heading: string;
+    items: { name: string; years: string; note?: string }[];
+  };
+  supported: {
+    heading: string;
+    items: { name: string; meta?: string }[];
+    trailing?: string;
+  };
+}
+const { kicker, title, body, organised, supported } = Astro.props;
+---
+<section class="parties">
+  <div class="container">
+    <Kicker>{kicker}</Kicker>
+    <h2>{title}</h2>
+    <p class="body">{body}</p>
+    <div class="grid">
+      <div class="col">
+        <h3>{organised.heading}</h3>
+        <ul class="list organised">
+          {organised.items.map(item => (
+            <li>
+              <div class="name">{item.name}</div>
+              <div class="years">{item.years}</div>
+              {item.note && <div class="note">{item.note}</div>}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="col">
+        <h3>{supported.heading}</h3>
+        <ul class="list supported">
+          {supported.items.map(item => (
+            <li>
+              <span class="name">{item.name}</span>
+              {item.meta && <span class="meta">{item.meta}</span>}
+            </li>
+          ))}
+        </ul>
+        {supported.trailing && <p class="trailing">{supported.trailing}</p>}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .parties { padding: 120px 0; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+  h2 { font-size: clamp(36px, 5vw, 72px); margin-top: 24px; max-width: 20ch; }
+  .body {
+    margin-top: 28px; max-width: 60ch;
+    color: var(--color-ink-2); line-height: 1.55;
+    font-size: clamp(16px, 1.15vw, 19px);
+  }
+  .grid {
+    margin-top: 64px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    align-items: start;
+  }
+  h3 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .list { list-style: none; padding: 0; margin: 0; }
+  .list li {
+    border-top: 1px solid var(--color-rule);
+    padding: 16px 0;
+  }
+  .list li:last-child { border-bottom: 1px solid var(--color-rule); }
+
+  .organised .name {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: var(--color-ink);
+  }
+  .organised .years {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--color-red);
+    margin-top: 4px;
+  }
+  .organised .note {
+    margin-top: 8px;
+    color: var(--color-ink-2);
+    line-height: 1.5;
+    max-width: 44ch;
+  }
+
+  .supported li {
+    display: flex; justify-content: space-between;
+    align-items: baseline; gap: 20px;
+    flex-wrap: wrap;
+  }
+  .supported .name {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--color-ink);
+  }
+  .supported .meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .06em;
+    color: var(--color-muted);
+  }
+  .trailing {
+    margin-top: 24px;
+    font-size: 14px;
+    color: var(--color-ink-2);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+  @media (max-width: 720px) {
+    .parties { padding: 80px 0; }
+    .container { padding: 0 20px; }
+  }
+</style>
