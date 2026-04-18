@@ -2,8 +2,8 @@
 section: hero
 order: 1
 eyebrow: "Tastatur und Maus e.V. — seit 2008"
-headline: Wir lieben Computerkunst. Macht mit.
-headlineAccent: us.
+headline: Wir lieben Computerkunst. Macht
+headlineAccent: mit.
 subtitle: "Jeden Ostern treffen sich tausend Coder, Musiker, Grafiker und alte Freunde in Saarbrücken zur Revision — ein viertägiges Festival, das die Kunst des Programmierens, die Freude am gemeinsamen Schaffen und die Freundschaften feiert, die die Demoszene am Leben halten."
 cta1: 
   label: Sponsor werden

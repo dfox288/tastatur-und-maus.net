@@ -68,12 +68,14 @@ function migrate() {
     const home = join(contentRoot, 'home', locale);
 
     // 01-hero
+    const accentPattern = locale === 'en' ? / us\.$/ : / mit\.$/;
+    const accent = locale === 'en' ? 'us.' : 'mit.';
     writeYaml(join(home, '01-hero.md'), {
       section: 'hero',
       order: 1,
       eyebrow: l.hero.eyebrow,
-      headline: l.hero.headline.replace(/ us\.$/, ''),
-      headlineAccent: 'us.',
+      headline: l.hero.headline.replace(accentPattern, ''),
+      headlineAccent: accent,
       subtitle: l.hero.sub,
       cta1: { label: l.hero.cta1, href: '#sponsors' },
       cta2: { label: l.hero.cta2, href: '#revision' },
