@@ -1,7 +1,7 @@
 ---
 section: hero
 order: 1
-eyebrow: "Tastatur und Maus e.V. — seit 2008"
+eyebrow: "Tastatur und Maus e.V. — seit 2007"
 headline: "Wir lieben Computerkunst. Macht"
 headlineAccent: "mit."
 subtitle: "Jeden Ostern kommen tausend Coder, Musiker, Grafikerinnen und alte Freunde ins E-Werk nach Saarbrücken — für vier Tage Echtzeit-Demos, Tracked Music, Pixelart, Live-Compos und Nächte, in denen niemand ins Bett will, solange noch über Code geredet wird. Demoszene. Leibhaftig."

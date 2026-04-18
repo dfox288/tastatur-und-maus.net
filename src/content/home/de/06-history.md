@@ -2,5 +2,5 @@
 section: history
 order: 6
 kicker: Historie
-title: Achtzehn Jahre, eine Szene.
+title: "Zwanzig Jahre, eine Szene."
 ---

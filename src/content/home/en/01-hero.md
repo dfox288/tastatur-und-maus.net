@@ -1,7 +1,7 @@
 ---
 section: hero
 order: 1
-eyebrow: "Tastatur und Maus e.V. — since 2008"
+eyebrow: "Tastatur und Maus e.V. — since 2007"
 headline: "We love computer art. Come join"
 headlineAccent: "us."
 subtitle: "Every Easter, a thousand coders, musicians, visual artists and old friends converge on Saarbrücken for Revision — four days of realtime demos, tracked music, pixel art, live competitions and long nights talking about code. The demoscene, live and in person."

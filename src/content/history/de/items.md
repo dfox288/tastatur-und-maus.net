@@ -1,21 +1,24 @@
 ---
-items: 
-- year: "2008"
-  title: "Erste Revision entsteht"
-  description: "Demoszene-Organisatoren gründen TUM e.V. — einen eingetragenen Verein, der das Konto führt, die Verträge unterschreibt und die nächste Party möglich macht."
-- year: "2011"
-  title: Erste Revision
-  description: "Die erste Revision findet zu Ostern in Saarbrücken statt und übernimmt das Erbe von Breakpoint."
-- year: "2015"
-  title: "Über die Tausendermarke"
-  description: "Revision überschreitet mit On-Site- und Stream-Publikum zusammen erstmals die Tausendermarke. Der Stream erreichte Zuschauende in Dutzenden Ländern."
-- year: "2020"
-  title: Revision Online
-  description: "Pandemie-Ausgabe, komplett remote — und trotzdem schalteten über 60 Länder live ein. Das größte Stream-Publikum, das Revision je hatte."
-- year: "2024"
-  title: YouTube 10k+
-  description: "Unser Archiv-Kanal überschreitet zehntausend Abonnenten und Millionen von Aufrufen."
-- year: "2027"
-  title: Siebzehnte Ausgabe
-  description: "Revision 2027. E-Werk, Saarbrücken. Osterwochenende. Dort, wo sie immer war."
+items:
+  - year: "2007"
+    title: "TUM e.V. gegründet"
+    description: "Demoszene-Organisatoren gründen TUM e.V. als Träger für The Ultimate Meeting — keine Party mehr aus der eigenen Tasche."
+  - year: "2011"
+    title: "Erste Revision"
+    description: "Die erste Revision findet zu Ostern im E-Werk statt und übernimmt das Erbe von Breakpoint. Im selben Jahr wird TUM e.V. als gemeinnützig anerkannt."
+  - year: "2013"
+    title: "Fokus auf Revision"
+    description: "The Ultimate Meeting findet zum letzten Mal statt. Ab 2014 ist die Revision der einzige Fokus von TUM e.V."
+  - year: "2015"
+    title: "Über die Tausendermarke"
+    description: "Revision überschreitet mit On-Site- und Stream-Publikum zusammen erstmals die Tausendermarke. Der Stream erreichte Zuschauende in Dutzenden Ländern."
+  - year: "2020"
+    title: "Revision Online"
+    description: "Pandemie-Ausgabe, komplett remote — und trotzdem schalteten über 40 Länder live ein. Das größte Stream-Publikum, das Revision je hatte."
+  - year: "2024"
+    title: "YouTube 10k+"
+    description: "Unser Archiv-Kanal überschreitet zehntausend Abonnenten und Millionen von Aufrufen."
+  - year: "2027"
+    title: "Siebzehnte Ausgabe"
+    description: "Revision 2027. E-Werk, Saarbrücken. Osterwochenende. Dort, wo sie immer war."
 ---

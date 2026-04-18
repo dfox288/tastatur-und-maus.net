@@ -36,7 +36,9 @@ const items = entries[0]?.data.items ?? [];
   h2 { font-size: clamp(36px, 5vw, 72px); margin-top: 24px; }
   .timeline {
     list-style: none; padding: 0; margin: 48px 0 0;
-    display: grid; grid-template-columns: repeat(6, 1fr); gap: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 24px;
   }
   .item { position: relative; padding-top: 12px; }
   .bar {
@@ -50,6 +52,5 @@ const items = entries[0]?.data.items ?? [];
   .year { font-family: var(--font-display); font-size: 40px; }
   .t { font-size: 16px; font-family: var(--font-display); font-weight: 500; margin-top: 10px; }
   .d { margin-top: 10px; font-size: 14px; color: var(--color-ink-2); line-height: 1.45; }
-  @media (max-width: 1100px) { .timeline { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 600px)  { .timeline { grid-template-columns: repeat(2, 1fr); } .container { padding: 0 20px; } }
+  @media (max-width: 600px) { .container { padding: 0 20px; } }
 </style>

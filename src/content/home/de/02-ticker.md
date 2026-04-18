@@ -6,7 +6,7 @@ tokens:
   emphasized: true
 - text: Die Osterparty
 - text: "Saarbrücken"
-- text: seit 2008
+- text: seit 2007
 - text: Code
   emphasized: true
 - text: Musik
