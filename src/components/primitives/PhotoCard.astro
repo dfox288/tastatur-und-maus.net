@@ -29,7 +29,9 @@ const { image, tag, caption, minHeight = '460px' } = Astro.props;
     background-size: cover; background-position: center;
     transition: transform 6s ease;
   }
-  .photo-card:hover .photo { transform: scale(1.04); }
+  @media (hover: hover) {
+    .photo-card:hover .photo { transform: scale(1.04); }
+  }
   .overlay {
     position: absolute; inset: 0;
     background: linear-gradient(to top, rgba(20,19,26,.7) 0%, rgba(20,19,26,.05) 50%);

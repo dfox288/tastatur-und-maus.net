@@ -65,7 +65,9 @@ const lbl = LABELS[locale];
     font-size: 22px; color: #eb6b7f;
     text-decoration: none;
   }
-  .link:hover { color: var(--color-paper); }
+  @media (hover: hover) {
+    .link:hover { color: var(--color-paper); }
+  }
   @media (max-width: 900px) { .meta { grid-template-columns: repeat(2, 1fr); } .card { padding: 40px 24px; } }
   @media (max-width: 720px) { .container { padding: 0 20px; } }
 </style>

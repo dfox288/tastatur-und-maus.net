@@ -115,7 +115,9 @@ const navLinks = [
     font-size: 14px; font-weight: 500;
     transition: color .15s;
   }
-  .nav a:hover { color: var(--color-red); }
+  @media (hover: hover) {
+    .nav a:hover { color: var(--color-red); }
+  }
   .top-right { display: flex; align-items: center; gap: 14px; }
   .lang {
     border: 1px solid var(--color-rule);
@@ -135,7 +137,9 @@ const navLinks = [
     font-family: var(--font-sans);
   }
   .btn.primary { background: var(--color-ink); color: var(--color-paper); }
-  .btn.primary:hover { background: var(--color-red); }
+  @media (hover: hover) {
+    .btn.primary:hover { background: var(--color-red); }
+  }
   .btn.small { padding: 9px 14px; font-size: 13px; }
 
   /* Mobile drawer */

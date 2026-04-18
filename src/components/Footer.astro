@@ -30,7 +30,9 @@ const year = new Date().getFullYear();
   }
   .legal { display: flex; gap: 20px; }
   .legal a { color: var(--color-muted); text-decoration: none; transition: color .15s; }
-  .legal a:hover { color: var(--color-red); }
+  @media (hover: hover) {
+    .legal a:hover { color: var(--color-red); }
+  }
   @media (max-width: 720px) {
     .footer-row { padding: 0 20px; }
   }

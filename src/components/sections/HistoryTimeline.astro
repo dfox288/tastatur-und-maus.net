@@ -44,7 +44,9 @@ const items = entries[0]?.data.items ?? [];
     width: 0; height: 3px; background: var(--color-red);
     transition: width .25s ease;
   }
-  .item:hover .bar { width: 100%; }
+  @media (hover: hover) {
+    .item:hover .bar { width: 100%; }
+  }
   .year { font-family: var(--font-display); font-size: 40px; }
   .t { font-size: 16px; font-family: var(--font-display); font-weight: 500; margin-top: 10px; }
   .d { margin-top: 10px; font-size: 14px; color: var(--color-ink-2); line-height: 1.45; }

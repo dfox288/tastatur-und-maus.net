@@ -31,7 +31,9 @@ const placeholders = [
     color: var(--color-muted); letter-spacing: .02em;
     transition: color .2s, background .2s;
   }
-  .logo:hover { color: var(--color-ink); background: var(--color-paper-2); }
+  @media (hover: hover) {
+    .logo:hover { color: var(--color-ink); background: var(--color-paper-2); }
+  }
   @media (max-width: 1000px) { .grid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 600px)  { .grid { grid-template-columns: repeat(2, 1fr); } }
 </style>

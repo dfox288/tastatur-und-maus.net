@@ -28,9 +28,11 @@ const cls = ['btn', variant, size === 'small' ? 'small' : ''].filter(Boolean).jo
     font-family: var(--font-sans);
   }
   .btn.primary { background: var(--color-ink); color: var(--color-paper); }
-  .btn.primary:hover { background: var(--color-red); }
   .btn.ghost { background: transparent; color: var(--color-ink); border-color: var(--color-ink); }
-  .btn.ghost:hover { background: var(--color-ink); color: var(--color-paper); }
+  @media (hover: hover) {
+    .btn.primary:hover { background: var(--color-red); }
+    .btn.ghost:hover { background: var(--color-ink); color: var(--color-paper); }
+  }
   .btn.small { padding: 9px 14px; font-size: 13px; }
   .arr { font-family: var(--font-mono); font-weight: 400; }
 </style>
