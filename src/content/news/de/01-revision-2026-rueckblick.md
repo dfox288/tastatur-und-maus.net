@@ -2,6 +2,6 @@
 date: "2026-04-15"
 tag: "Rückblick"
 title: "Revision 2026 — der Rückblick"
-excerpt: "Vier Tage, 1.100 Besuchende und das stärkste Shader-Showdown-Finale seit Jahren. Ein Überblick."
+excerpt: "Über 700 vor Ort, ~1.000 Spitze im Stream, 370+ Beiträge in 27 Compos. Das stärkste Shader-Showdown-Finale seit Jahren."
 order: 1
 ---

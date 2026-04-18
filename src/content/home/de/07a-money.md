@@ -1,11 +1,10 @@
 ---
 section: "moneyBreakdown"
 order: 7.1
-kicker: "Transparenz"
-title: "Wofür das Geld verwendet wird"
+kicker: "Wie Sponsoring hier funktioniert"
+title: "Zuerst die Grundkosten."
 items:
-  - "Preisgelder — Geld- und Sachpreise in 16+ Compo-Kategorien"
-  - "Venue & Produktion — E-Werk, PA, Projektion, Aufnahmetechnik"
-  - "Stream-Infrastruktur — Mehrkamera-Übertragung in 60+ Länder"
-  - "Reiseunterstützung — wir helfen Szenern aus weniger gut ausgestatteten Ländern, nach Saarbrücken zu kommen"
+  - "Venue und Produktion — E-Werk-Miete, PA, Projektion, Aufnahmetechnik, Equipment für die Crew."
+  - "Livestream — Mehrkamera-Übertragung, Encoder, Plattformkosten, Bandbreite."
+  - "Preisgelder — Geld- und Sachpreise für die Compo-Gewinner, sobald die Grundkosten gedeckt sind."
 ---

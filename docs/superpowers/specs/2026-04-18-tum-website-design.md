@@ -7,7 +7,7 @@
 
 ## 1. Context
 
-Tastatur und Maus e.V. is the non-profit that organises **Revision**, the world's largest demoparty, every Easter in Saarbrücken. The association needs a public website whose primary business goal is **attracting sponsors for Revision 2027** (April 2–5, 2027 — ~11.5 months out at time of writing), and whose secondary role is serving as the public face of the e.V. for the demoscene community, press, and authorities. The site is bilingual (EN/DE).
+Tastatur und Maus e.V. is the non-profit that organises **Revision**, the world's largest demoparty, every Easter in Saarbrücken. The association needs a public website whose primary business goal is **attracting sponsors for Revision 2027** (March 26–29, 2027 — ~11.5 months out at time of writing), and whose secondary role is serving as the public face of the e.V. for the demoscene community, press, and authorities. The site is bilingual (EN/DE).
 
 A design agency delivered a handoff bundle (`design_handoff_tum_website/`) with three HTML prototypes. **Site A — Editorial** is the approved direction. The prototypes are pixel-accurate references, not production code. This project recreates Site A in a production stack.
 

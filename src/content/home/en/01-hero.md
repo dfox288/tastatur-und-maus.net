@@ -11,7 +11,7 @@ cta1:
 cta2: 
   label: "About Revision 2027"
   href: "#revision"
-countdownLabel: "Revision 2027 · 2–5 April · E-Werk, Saarbrücken"
+countdownLabel: "Revision 2027 · 26–29 March · E-Werk, Saarbrücken"
 heroTag: "Revision 2026"
 heroCaption: "The E-Werk, Easter weekend. Revision 2026."
 heroImage: "/images/hero.jpg"

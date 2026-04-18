@@ -7,8 +7,8 @@ items:
   title: Erste Revision
   description: "Die erste Revision findet zu Ostern in Saarbrücken statt und übernimmt das Erbe von Breakpoint."
 - year: "2015"
-  title: "1.000 auf der Party"
-  description: "Revision überschreitet die Tausendermarke. Der Stream erreichte Zuschauende in Dutzenden Ländern."
+  title: "Über die Tausendermarke"
+  description: "Revision überschreitet mit On-Site- und Stream-Publikum zusammen erstmals die Tausendermarke. Der Stream erreichte Zuschauende in Dutzenden Ländern."
 - year: "2020"
   title: Revision Online
   description: "Pandemie-Ausgabe, komplett remote — und trotzdem schalteten über 60 Länder live ein. Das größte Stream-Publikum, das Revision je hatte."
@@ -16,6 +16,6 @@ items:
   title: YouTube 10k+
   description: "Unser Archiv-Kanal überschreitet zehntausend Abonnenten und Millionen von Aufrufen."
 - year: "2027"
-  title: Sechzehnte Ausgabe
+  title: Siebzehnte Ausgabe
   description: "Revision 2027. E-Werk, Saarbrücken. Osterwochenende. Dort, wo sie immer war."
 ---
