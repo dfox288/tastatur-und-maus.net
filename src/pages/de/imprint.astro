@@ -1,7 +1,13 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
+import JsonLd from '~/components/JsonLd.astro';
 ---
-<BaseLayout title="Impressum — Tastatur und Maus e.V." locale="de">
+<BaseLayout
+  title="Impressum — Tastatur und Maus e.V."
+  description="Impressum des Tastatur und Maus e.V., eingetragener gemeinnütziger Verein in Saarbrücken, Veranstalter der Demoparty Revision."
+  locale="de"
+>
+  <JsonLd slot="head" locale="de" />
   <article class="legal-page">
     <h1>Impressum</h1>
     <p><strong>Tastatur und Maus e.V.</strong></p>

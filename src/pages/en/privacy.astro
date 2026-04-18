@@ -1,7 +1,13 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
+import JsonLd from '~/components/JsonLd.astro';
 ---
-<BaseLayout title="Privacy — Tastatur und Maus e.V." locale="en">
+<BaseLayout
+  title="Privacy — Tastatur und Maus e.V."
+  description="Privacy policy for tastatur-und-maus.net. Statically hosted, no cookies, no tracking, no third-party CDN — contact submissions processed only to reply."
+  locale="en"
+>
+  <JsonLd slot="head" locale="en" />
   <article class="legal-page">
     <h1>Privacy</h1>
     <p>This website is statically generated and self-hosted. We do not set tracking cookies or run analytics.</p>

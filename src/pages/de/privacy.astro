@@ -1,7 +1,13 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
+import JsonLd from '~/components/JsonLd.astro';
 ---
-<BaseLayout title="Datenschutz — Tastatur und Maus e.V." locale="de">
+<BaseLayout
+  title="Datenschutz — Tastatur und Maus e.V."
+  description="Datenschutzerklärung für tastatur-und-maus.net. Statisch gehostet, keine Cookies, kein Tracking, keine CDN Dritter. Kontaktanfragen nur zur Beantwortung verarbeitet."
+  locale="de"
+>
+  <JsonLd slot="head" locale="de" />
   <article class="legal-page">
     <h1>Datenschutz</h1>
     <p>Diese Website wird statisch generiert und auf eigener Infrastruktur gehostet. Wir setzen keine Tracking-Cookies und betreiben keine Analyse-Tools.</p>

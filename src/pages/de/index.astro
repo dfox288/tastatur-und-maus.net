@@ -14,12 +14,18 @@ import Gallery from '~/components/sections/Gallery.astro';
 import PressKit from '~/components/sections/PressKit.astro';
 import News from '~/components/sections/News.astro';
 import ContactSection from '~/components/sections/ContactSection.astro';
+import JsonLd from '~/components/JsonLd.astro';
 
 const locale = 'de' as const;
 const entries = (await getCollection('home', e => e.id.startsWith('de/')))
   .sort((a, b) => a.data.order - b.data.order);
 ---
-<BaseLayout title="Tastatur und Maus e.V. — Wir lieben Computer-Kunst." locale={locale}>
+<BaseLayout
+  title="Tastatur und Maus e.V. — Wir lieben Computer-Kunst."
+  description="Tastatur und Maus e.V. veranstaltet Revision — die größte Demoparty der Welt. Ostern 2027 in Saarbrücken. Sponsern Sie eine 1.000-köpfige Tech-Community."
+  locale={locale}
+>
+  <JsonLd slot="head" locale={locale} includeEvent />
   {entries.map(e => {
     switch (e.data.section) {
       case 'hero':          return <Hero {...e.data} />;

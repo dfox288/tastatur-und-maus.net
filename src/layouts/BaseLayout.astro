@@ -18,11 +18,13 @@ const effectiveDescription = description ?? (locale === 'en'
   ? 'Tastatur und Maus e.V. — the non-profit behind Revision, the world\'s biggest demoparty.'
   : 'Tastatur und Maus e.V. — der gemeinnützige Verein hinter Revision, der größten Demoparty der Welt.');
 const hreflang = hreflangPairs(Astro.url.pathname, Astro.site?.origin ?? 'https://tastatur-und-maus.net');
-// og:image / twitter:image are emitted only when a caller supplies one.
-// A default site-level OG image is a v1.1 item (docs/TODO.md).
+const siteOrigin = Astro.site?.origin ?? 'https://tastatur-und-maus.net';
+const effectiveImage = image ?? `${siteOrigin}/og-default.jpg`;
+const ogLocale = locale === 'en' ? 'en_US' : 'de_DE';
+const ogAlternateLocale = locale === 'en' ? 'de_DE' : 'en_US';
 ---
 <!doctype html>
-<html lang={locale}>
+<html lang={locale} dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -35,11 +37,17 @@ const hreflang = hreflangPairs(Astro.url.pathname, Astro.site?.origin ?? 'https:
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Tastatur und Maus e.V." />
     <meta property="og:url" content={canonical.href} />
-    {image && <meta property="og:image" content={image} />}
+    <meta property="og:locale" content={ogLocale} />
+    <meta property="og:locale:alternate" content={ogAlternateLocale} />
+    <meta property="og:image" content={effectiveImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={title} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={effectiveDescription} />
-    {image && <meta name="twitter:image" content={image} />}
+    <meta name="twitter:image" content={effectiveImage} />
+    <meta name="twitter:image:alt" content={title} />
     {hreflang.map(p => <link rel="alternate" hreflang={p.hreflang} href={p.href} />)}
     <title>{title}</title>
     <slot name="head" />

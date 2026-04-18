@@ -1,7 +1,13 @@
 ---
 import BaseLayout from '~/layouts/BaseLayout.astro';
+import JsonLd from '~/components/JsonLd.astro';
 ---
-<BaseLayout title="Verhaltenskodex — Tastatur und Maus e.V." locale="de">
+<BaseLayout
+  title="Verhaltenskodex — Tastatur und Maus e.V."
+  description="Verhaltenskodex für Revision, die Demoparty des Tastatur und Maus e.V. Offener Raum für kreative Menschen aller Hintergründe, Null-Toleranz für Belästigung."
+  locale="de"
+>
+  <JsonLd slot="head" locale="de" />
   <article class="legal-page">
     <h1>Verhaltenskodex</h1>
     <p>Revision ist ein offener Raum für kreative Menschen aller Hintergründe. Wir erwarten, dass sich alle — Besuchende, Vortragende, Helfende und Sponsoren — respektvoll begegnen.</p>

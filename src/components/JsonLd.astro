@@ -1,0 +1,50 @@
+---
+import type { Locale } from '~/i18n';
+interface Props { locale: Locale; includeEvent?: boolean; }
+const { locale, includeEvent = false } = Astro.props;
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Tastatur und Maus e.V.',
+  url: `https://tastatur-und-maus.net/${locale}/`,
+  logo: 'https://tastatur-und-maus.net/tum-logo.png',
+  email: 'info@tastatur-und-maus.net',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Saarbrücken',
+    postalCode: '66111',
+    addressCountry: 'DE',
+  },
+};
+
+const event = {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name: 'Revision 2027',
+  startDate: '2027-04-02',
+  endDate: '2027-04-05',
+  eventStatus: 'https://schema.org/EventScheduled',
+  eventAttendanceMode: 'https://schema.org/MixedEventAttendanceMode',
+  location: {
+    '@type': 'Place',
+    name: 'E-Werk Saarbrücken',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Saarbrücken',
+      addressCountry: 'DE',
+    },
+  },
+  organizer: {
+    '@type': 'Organization',
+    name: 'Tastatur und Maus e.V.',
+    url: `https://tastatur-und-maus.net/${locale}/`,
+  },
+  description: locale === 'en'
+    ? "The world's largest demoparty — four days of realtime graphics, electronic music, and creative competitions."
+    : 'Die größte Demoparty der Welt — vier Tage Echtzeitgrafik, elektronische Musik und kreative Wettbewerbe.',
+  url: 'https://2027.revision-party.net',
+};
+---
+<script type="application/ld+json" is:inline set:html={JSON.stringify(organization)} />
+{includeEvent && <script type="application/ld+json" is:inline set:html={JSON.stringify(event)} />}
