@@ -2,6 +2,7 @@
 interface Props { text: string; }
 const { text } = Astro.props;
 ---
+<!-- Requires a position: relative (or absolute / fixed / sticky) parent — designed to slot into <PhotoCard>. -->
 <div class="heritage">
   <span class="icon" aria-hidden="true">◆</span>
   <span class="text">{text}</span>

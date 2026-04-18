@@ -8,9 +8,12 @@ interface Props {
   target?: string;
 }
 const { href, variant = 'primary', size = 'normal', arrow = false, rel, target } = Astro.props;
+const safeRel = target === '_blank'
+  ? (rel ? `${rel} noopener noreferrer` : 'noopener noreferrer')
+  : rel;
 const cls = ['btn', variant, size === 'small' ? 'small' : ''].filter(Boolean).join(' ');
 ---
-<a href={href} class={cls} rel={rel} target={target}>
+<a href={href} class={cls} rel={safeRel} target={target}>
   <slot />
   {arrow && <span class="arr">→</span>}
 </a>
