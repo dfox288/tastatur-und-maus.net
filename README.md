@@ -22,3 +22,11 @@ See `docs/superpowers/specs/2026-04-18-tum-website-design.md` for the v1 design 
 
 ## Deployment
 Pushes to `main` build `dfox288/tastatur-und-maus:${SHA}` on Docker Hub, then bump the image tag in the `dfox288/tum-cluster-tum-websites_k8s` manifest repo. ArgoCD reconciles the change.
+
+## See also
+
+- [`tum-cluster-tum-websites_k8s`](https://github.com/dfox288/tum-cluster-tum-websites_k8s) — runtime manifests (Argo CD app `tum-websites`, namespace `tum-tum`). The deploy step lands here.
+- [`tum-cluster_k8s`](https://github.com/dfox288/tum-cluster_k8s) — platform layer (cluster fundamentals, ingress, certs, storage, GitOps).
+- [`tum-static-websites`](https://github.com/dfox288/tum-static-websites) — historical tum-party.net year archives (1999–2013).
+- [`revision-static-websites`](https://github.com/dfox288/revision-static-websites) — Revision year archives (2011–2024), the demoparty that Tastatur und Maus e.V. organises.
+- [`archive.revision-party.net`](https://github.com/dfox288/archive.revision-party.net) — richer interactive archive of Revision history.
