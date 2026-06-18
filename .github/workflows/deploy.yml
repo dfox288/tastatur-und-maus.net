@@ -1,29 +1,57 @@
 name: Build and Deploy
+# Keyless CI: no stored DOCKERHUB_TOKEN, no SSH write-back key. The job requests
+# a GitHub OIDC token, exchanges it with the tum Infisical
+# (secrets.tastatur-und-maus.net, project tum-websites-ci) for the Docker Hub
+# push token (build) and the tum-websites-k8s-deploy GitHub App key, then mints
+# a 1h installation token scoped to ONLY the manifests repo to push the tag bump.
+# Replaces the shared TUM_WEBSITES_K8S_PRIVATE_KEY + the static DOCKERHUB_TOKEN.
+# This repo stores only the non-secret INFISICAL_IDENTITY_ID + INFISICAL_PROJECT_SLUG.
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+# Serialize runs — two parallel deploys would race the manifests push.
+concurrency:
+  group: build-image
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write   # OIDC -> Infisical (DH push creds + GitHub App key)
+
+env:
+  MANIFESTS_REPO: dfox288/tum-cluster-tum-websites_k8s
+
 jobs:
-  build-and-push:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Fetch creds from Infisical (OIDC, no stored token)
+        uses: Infisical/secrets-action@v1.0.7
+        with:
+          method: oidc
+          domain: https://secrets.tastatur-und-maus.net
+          identity-id: ${{ secrets.INFISICAL_IDENTITY_ID }}
+          project-slug: ${{ secrets.INFISICAL_PROJECT_SLUG }}
+          env-slug: prod
+          secret-path: /
+        # exports DOCKERHUB_USERNAME, DOCKERHUB_PUSH_TOKEN, GH_APP_ID, GH_APP_PRIVATE_KEY
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
       - name: Login to Docker Hub
-        if: github.event_name != 'pull_request'
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: ${{ env.DOCKERHUB_USERNAME }}
+          password: ${{ env.DOCKERHUB_PUSH_TOKEN }}
 
       - name: Build and push
         uses: docker/build-push-action@v6
-        if: github.event_name != 'pull_request'
         with:
           context: .
           push: true
@@ -33,25 +61,32 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Trigger k8s deploy
-        if: github.event_name != 'pull_request'
+      - name: Mint short-lived GitHub App token for the manifests repo
+        id: app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ env.GH_APP_ID }}
+          private-key: ${{ env.GH_APP_PRIVATE_KEY }}
+          owner: dfox288
+          repositories: tum-cluster-tum-websites_k8s
+
+      - name: Bump image SHA in the manifests repo
         env:
-          PRIVATE_KEY: ${{ secrets.TUM_WEBSITES_K8S_PRIVATE_KEY }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
         run: |
-          mkdir -p ~/.ssh
-          echo "$PRIVATE_KEY" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-
-          git config --global user.email "info@tastatur-und-maus.net"
-          git config --global user.name "${{ github.repository_owner }}"
-
-          git clone git@github.com:dfox288/tum-cluster-tum-websites_k8s.git /tmp/k8s
-          cd /tmp/k8s
-
-          sed -i "s|dfox288/tastatur-und-maus:.*|dfox288/tastatur-und-maus:${{ github.sha }}|" \
-            tastatur-und-maus.net/*-deployment.yaml
-
-          git add -A
-          git commit -m "deploy dfox288/tastatur-und-maus:${{ github.sha }}"
-          git push
+          set -euo pipefail
+          git clone --depth 1 \
+            "https://x-access-token:${GH_TOKEN}@github.com/${MANIFESTS_REPO}.git" manifests
+          cd manifests
+          sed -i "s|dfox288/tastatur-und-maus:.*|dfox288/tastatur-und-maus:${GITHUB_SHA}|" \
+            tastatur-und-maus.net/tastatur-und-maus-deployment.yaml
+          git config user.email "info@tastatur-und-maus.net"
+          git config user.name  "tastatur-deploy-bot"
+          git add tastatur-und-maus.net/tastatur-und-maus-deployment.yaml
+          if git diff --cached --quiet; then
+            echo "[deploy] manifest already at ${GITHUB_SHA} — nothing to push"
+            exit 0
+          fi
+          git commit -m "deploy dfox288/tastatur-und-maus:${GITHUB_SHA}"
+          git pull --rebase origin main
+          git push origin main
